@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.du.shopping.mappers.adminMapper">
+	<select id="category" resultType="CategoryVO">
+		select level, cateName, cateCode, cateCodeRef
+		from goods_category
+		start with cateCodeRef is null connect by prior cateCode = cateCodeRef
+	</select>
+	
+</mapper>

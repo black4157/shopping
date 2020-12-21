@@ -8,7 +8,7 @@ public class GoodsVO {
 	private String cateCode;
 	private int gdsPrice;
 	private int gdsStock;
-	private String dgsDes;
+	private String gdsDes;
 	private String dgsImg;
 	private Date gdsDate;
 	public int getGdsNum() {
@@ -41,11 +41,11 @@ public class GoodsVO {
 	public void setGdsStock(int gdsStock) {
 		this.gdsStock = gdsStock;
 	}
-	public String getDgsDes() {
-		return dgsDes;
+	public String getGdsDes() {
+		return gdsDes;
 	}
-	public void setDgsDes(String dgsDes) {
-		this.dgsDes = dgsDes;
+	public void setGdsDes(String gdsDes) {
+		this.gdsDes = gdsDes;
 	}
 	public String getDgsImg() {
 		return dgsImg;
@@ -62,7 +62,7 @@ public class GoodsVO {
 	@Override
 	public String toString() {
 		return "GoodsVO [gdsNum=" + gdsNum + ", gdsName=" + gdsName + ", cateCode=" + cateCode + ", gdsPrice="
-				+ gdsPrice + ", gdsStock=" + gdsStock + ", dgsDes=" + dgsDes + ", dgsImg=" + dgsImg + ", gdsDate="
+				+ gdsPrice + ", gdsStock=" + gdsStock + ", gdsDes=" + gdsDes + ", dgsImg=" + dgsImg + ", gdsDate="
 				+ gdsDate + "]";
 	}
 	

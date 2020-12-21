@@ -10,4 +10,20 @@
 		start with cateCodeRef is null connect by prior cateCode = cateCodeRef
 	</select>
 	
+	<insert id="register">
+		insert into tbl_goods(gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes)
+		values(sequence1.nextval, #{gdsName}, #{cateCode}, #{gdsPrice}, #{gdsStock}, #{gdsDes})
+	</insert>
+	
+	<select id="goodslist" resultType="GoodsVO">
+		select gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate
+		from tbl_goods
+		order by gdsNum desc
+	</select>
+	
+	<select id="goodsView" resultType="GoodsVO">
+		select gdsNum, gdsName, cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate
+		from tbl_goods
+		where gdsNum = #{gdsNum}
+	</select>
 </mapper>

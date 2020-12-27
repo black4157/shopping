@@ -128,6 +128,17 @@ textarea#gdsDes {
 	width:400px; 
 	height:180px; 
 }
+
+.oriImg{
+	width:500px;
+	height:auto;
+}
+
+.thumbImg{
+	width:300px;
+	height:auto;
+}
+
 </style>
 
 </head>
@@ -150,9 +161,11 @@ textarea#gdsDes {
 			<%@ include file="../include/aside.jsp"%>
 		</aside>
 		<div id="container_box">
-			<h2>상품 등록</h2>
+			<h2>상품 조회</h2>
 
 			<form role="form" method="post" autocomplete="off">
+			
+			<input type="hidden" name="n" value="${goods.gdsNum }" />
 				<div class="inputArea"> 
 					<label>1차 분류</label>
 					<span class="category1"></span>   
@@ -182,8 +195,17 @@ textarea#gdsDes {
 				</div>
 				
 				<div class="inputArea">
-					<button type="button" id="register_Btn" class="btn btn-warning">수정</button>
-					<button type="button" id="register_Btn" class="btn btn-danger">삭제</button>
+					<label for="gdsImg">이미지</label>
+					<p>원본이미지</p>
+					<img src="${goods.gdsImg }" class="oriImg"/>
+					
+					<p>썸네일</p>
+					<img src="${goods.gdsThumbImg }" class="thumbImg"/>
+				</div>
+				
+				<div class="inputArea">
+					<button type="button" id="modify_Btn" class="btn btn-warning">수정</button>
+					<button type="button" id="delete_Btn" class="btn btn-danger">삭제</button>
 				</div>
 			</form>
 		</div>
@@ -196,58 +218,22 @@ textarea#gdsDes {
 	</footer>
 
 	<script>
-		var jsonData = JSON.parse('${category}');
-		console.log(jsonData);
+		var formObj = $("form[role='form']");
 
-		var cate1Arr = new Array();
-		var cate1Obj = new Object();
-
-		for (var i = 0; i < jsonData.length; i++) {
-			if (jsonData[i].level == "1") {
-				cate1Obj = new Object(); 
-				cate1Obj.cateCode = jsonData[i].cateCode;
-				cate1Obj.cateName = jsonData[i].cateName;
-				cate1Arr.push(cate1Obj);
-			}
-		}
-
-		var cate1Select = $("select.category1")
-
-		for (var i = 0; i < cate1Arr.length; i++) {
-			cate1Select.append("<option value='" + cate1Arr[i].cateCode + "'>" + cate1Arr[i].cateName + "</option>");
-		}
-
-		
-		$(document).on("change", "select.category1", function(){
-
-			var cate2Arr = new Array();
-			var cate2Obj = new Object();
-			
-			for(var i = 0; i < jsonData.length; i++) {
-				if(jsonData[i].level == "2") {
-					cate2Obj = new Object(); 
-					cate2Obj.cateCode = jsonData[i].cateCode;
-					cate2Obj.cateName = jsonData[i].cateName;
-					cate2Obj.cateCodeRef = jsonData[i].cateCodeRef;
-				 	cate2Arr.push(cate2Obj);
-				}
-			}
-			 
-			var cate2Select = $("select.category2");
-			
-			cate2Select.children().remove();
-
-			$("option:selected", this).each(function(){
-				var selectVal = $(this).val();
-				cate2Select.append("<option value='" + selectVal + "'>전체</option>");
-
-				for(var i = 0; i < cate2Arr.length; i++){
-					if(selectVal == cate2Arr[i].cateCodeRef){
-						cate2Select.append("<option value='" + cate2Arr[i].cateCode + "'>" + cate2Arr[i].cateName + "</option>");
-					}
-				}
-			})
+		$("#modify_Btn").click(function(){
+			formObj.attr("action", "/admin/goods/modify");
+			formObj.attr("method", "get");
+			formObj.submit();
 		});
+
+		$("#delete_Btn").click(function(){
+			var con = confirm("정말로 삭제하시겠습니까?");
+			if(con){
+				formObj.attr("action", "/admin/goods/delete");
+				formObj.submit();
+			}
+		});
+		
 	</script>
 </body>
 </html>

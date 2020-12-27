@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.du.shopping.domain.CategoryVO;
 import com.du.shopping.domain.GoodsVO;
+import com.du.shopping.domain.GoodsViewVO;
 
 public interface AdminDAO {
 	
@@ -13,5 +14,9 @@ public interface AdminDAO {
 	
 	public List<GoodsVO> goodslist() throws Exception;
 	
-	public GoodsVO goodsView(int gdsNum) throws Exception;
+	public GoodsViewVO goodsView(int gdsNum) throws Exception;
+	
+	public void goodsModify(GoodsVO vo) throws Exception;
+	
+	public void goodsDelete(int gdsNum) throws Exception;
 }

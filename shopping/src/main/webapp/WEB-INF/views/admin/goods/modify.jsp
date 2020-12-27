@@ -10,8 +10,7 @@
 <script src="/resources/jquery/jquery-3.5.1.min.js"></script>
 
 <link rel="stylesheet" href="/resources/bootstrap/bootstrap.min.css">
-<link rel="stylesheet"
-	href="/resources/bootstrap/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/resources/bootstrap/bootstrap-theme.min.css">
 <script src="/resources/bootstrap/bootstrap.min.js"></script>
 
 <!-- 나중에 변경-->
@@ -127,10 +126,6 @@ textarea#gdsDes {
 	width:400px; 
 	height:180px; 
 }
-
-.select_img img{
-	margin:20px 0;
-}
 </style>
 
 </head>
@@ -155,8 +150,9 @@ textarea#gdsDes {
 		<div id="container_box">
 			<h2>상품 등록</h2>
 
-			<form role="form" method="post" autocomplete="off" enctype="multipart/form-data">
-
+			<form role="form" method="post" autocomplete="off">
+			<input type="hidden" name="gdsNum" value="${goods.gdsNum }" />
+			
 			<div class="inputArea"> 
 				<label>1차 분류</label>
 				<select class="category1">
@@ -171,46 +167,32 @@ textarea#gdsDes {
 			
 			<div class="inputArea">
 				<label for="gdsName">상품명</label>
-				<input type="text" id="gdsName" name="gdsName" />
+				<input type="text" id="gdsName" name="gdsName" value="${goods.gdsName }"/>
 			</div>
 			
 			<div class="inputArea">
 				<label for="gdsPrice">상품가격</label>
-				<input type="text" id="gdsPrice" name="gdsPrice" />
+				<input type="text" id="gdsPrice" name="gdsPrice" value="${goods.gdsPrice }"/>
 			</div>
 			
 			<div class="inputArea">
 				<label for="gdsStock">상품수량</label>
-				<input type="text" id="gdsStock" name="gdsStock" />
+				<input type="text" id="gdsStock" name="gdsStock" value="${goods.gdsStock }"/>
 			</div>
 			
 			<div class="inputArea">
 				<label for="gdsDes">상품소개</label>
-				<textarea rows="5" cols="50" id="gdsDes" name="gdsDes"></textarea>
+				<textarea rows="5" cols="50" id="gdsDes" name="gdsDes">${goods.gdsDes }</textarea>
 			</div>
 			
 			<div class="inputArea">
-				<label for="gdsImg">이미지</label>
-				<input type="file" id="gdsImg" name="file" />
-				<div class="select_img"><img src="" /></div>
-				
+				<button type="submit" id="update_Btn" class="btn btn-primary">완료</button>
+				<button type="submit" id="back_Btn" class="btn btn-warning">취소</button>
 				<script>
-					$("#gdsImg").change(function(){
-						if(this.files && this.files[0]) {
-							var reader = new FileReader;
-							reader.onload = function(data){
-								$(".select_img img").attr("src", data.target.result).width(500);
-							}
-							reader.readAsDataURL(this.files[0]);
-						}
+					$("#back_Btn").click(function(){
+						location.href="/admin/goods/view?n=" + ${goods.gdsNum};
 					});
 				</script>
-				
-				<%=request.getRealPath("/") %>
-			</div>
-			
-			<div class="inputArea">
-				<button type="submit" id="register_Btn" class="btn btn-primary">등록</button>
 			</div>
 			
 			</form>
@@ -224,6 +206,22 @@ textarea#gdsDes {
 	</footer>
 
 	<script>
+		var select_cateCode = '${goods.cateCode}';
+		var select_cateCodeRef = '${goods.cateCodeRef}';
+		var select_cateName = '${goods.cateName}';
+		//document.write(select_cateCode + " " + select_cateCodeRef + " " + select_cateName);
+		
+		if(select_cateCodeRef != null && select_cateCodeRef != ''){
+			$(".catagory1").val(select_cateCodeRef);
+			$(".category2").val(select_cateCode);
+			$(".category2").children().remove();
+			$(".category2").append("<option value='" + select_cateCode + "'>" + select_cateName + "</option>");
+		} else{
+			$(".category1").val(select_cateCode);
+			//$(".category2").val(select_cateCode);
+			$(".category2").append("<option value='" + select_cateCode + "' selected='selected'>전체</option>");
+		}
+
 		var jsonData = JSON.parse('${category}');
 		console.log(jsonData);
 
@@ -276,6 +274,7 @@ textarea#gdsDes {
 				}
 			})
 		});
+				
 	</script>
 </body>
 </html>

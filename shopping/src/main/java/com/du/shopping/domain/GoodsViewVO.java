@@ -2,7 +2,7 @@ package com.du.shopping.domain;
 
 import java.util.Date;
 
-public class GoodsVO {
+public class GoodsViewVO {
 	private int gdsNum;
 	private String gdsName;
 	private String cateCode;
@@ -11,7 +11,12 @@ public class GoodsVO {
 	private String gdsDes;
 	private String gdsImg;
 	private Date gdsDate;
+	
+	private String cateCodeRef;
+	private String cateName;
+	
 	private String gdsThumbImg;
+	
 	public int getGdsNum() {
 		return gdsNum;
 	}
@@ -60,6 +65,19 @@ public class GoodsVO {
 	public void setGdsDate(Date gdsDate) {
 		this.gdsDate = gdsDate;
 	}
+	public String getCateCodeRef() {
+		return cateCodeRef;
+	}
+	public void setCateCodeRef(String cateCodeRef) {
+		this.cateCodeRef = cateCodeRef;
+	}
+	public String getCateName() {
+		return cateName;
+	}
+	public void setCateName(String cateName) {
+		this.cateName = cateName;
+	}
+	
 	public String getGdsThumbImg() {
 		return gdsThumbImg;
 	}
@@ -68,10 +86,9 @@ public class GoodsVO {
 	}
 	@Override
 	public String toString() {
-		return "GoodsVO [gdsNum=" + gdsNum + ", gdsName=" + gdsName + ", cateCode=" + cateCode + ", gdsPrice="
+		return "GoodsViewVO [gdsNum=" + gdsNum + ", gdsName=" + gdsName + ", cateCode=" + cateCode + ", gdsPrice="
 				+ gdsPrice + ", gdsStock=" + gdsStock + ", gdsDes=" + gdsDes + ", gdsImg=" + gdsImg + ", gdsDate="
-				+ gdsDate + ", gdsThumbImg=" + gdsThumbImg + "]";
+				+ gdsDate + ", cateCodeRef=" + cateCodeRef + ", cateName=" + cateName + ", gdsThumbImg=" + gdsThumbImg
+				+ "]";
 	}
-	
-	
 }

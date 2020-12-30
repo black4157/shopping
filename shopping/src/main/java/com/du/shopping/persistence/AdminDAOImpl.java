@@ -30,7 +30,7 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 	
 	@Override
-	public List<GoodsVO> goodslist() throws Exception{
+	public List<GoodsViewVO> goodslist() throws Exception{
 		return sql.selectList(namespace + ".goodslist");
 	}
 	

@@ -139,6 +139,10 @@ textarea#gdsDes {
 	height:auto;
 }
 
+.gdsDes img{
+	max-width: 600px;
+	height: auto;
+}
 </style>
 
 </head>
@@ -186,12 +190,13 @@ textarea#gdsDes {
 				
 				<div class="inputArea">
 					<label for="gdsStock">상품수량</label>
-					<span>${goods.gdsStock}</span>
+					<span><fmt:formatNumber value="${goods.gdsStock}" pattern="###,###,###"/></span>
 				</div>
 				
 				<div class="inputArea">
 					<label for="gdsDes">상품소개</label>
-					<span>${goods.gdsDes}</span>
+					<!--  <span>${goods.gdsDes}</span>-->
+					<div class="gdsDes">${goods.gdsDes }</div>
 				</div>
 				
 				<div class="inputArea">

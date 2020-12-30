@@ -34,11 +34,16 @@
 	
 	<!-- file upload -->
 	<beans:bean class="java.lang.String" id="uploadPath">
-		<beans:constructor-arg value="C:/Users/black/git/repository4/shopping/src/main/webapp/resources" />
+		<beans:constructor-arg value="C:\Users\black\Documents\workspace-spring-tool-suite-4-4.5.0.RELEASE\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\shopping\resources" />
 	</beans:bean>
 	
 	<!-- 파일 업로드 경로 -->
 	<resources mapping="/imgUpload/**" location="/resources/imgUpload/" />
+	
+	<!-- ck에디터 파일 업로드 경로 -->
+	<resources mapping="/ckUpload/**" location="/resources/ckUpload/" />
+	
+	<resources mapping="/images/**" location="/resources/images/" />
 	
 	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
 		<beans:property name="maxUploadSize" value="10485760" />

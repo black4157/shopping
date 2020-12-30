@@ -14,6 +14,8 @@
 	href="/resources/bootstrap/bootstrap-theme.min.css">
 <script src="/resources/bootstrap/bootstrap.min.js"></script>
 
+<script src="/resources/ckeditor/ckeditor.js" ></script>
+
 <!-- 나중에 변경-->
 <style>
 body {
@@ -187,6 +189,17 @@ textarea#gdsDes {
 			<div class="inputArea">
 				<label for="gdsDes">상품소개</label>
 				<textarea rows="5" cols="50" id="gdsDes" name="gdsDes"></textarea>
+				
+				<script>
+					var ckeditor_config = {
+						resize_enaleb : false,
+						enterMode : CKEDITOR.ENTER_BR,
+						shiftEnterMode : CKEDITOR.ENTER_P,
+						filebrowserUploadUrl : "/admin/goods/ckUpload"
+					};
+
+					CKEDITOR.replace("gdsDes", ckeditor_config);
+				</script>
 			</div>
 			
 			<div class="inputArea">
@@ -276,6 +289,17 @@ textarea#gdsDes {
 				}
 			})
 		});
+	</script>
+	<script>
+		var regExp = /[^0-9]/gi;
+
+		$("#gdsPrice").keyup(function(){ numCheck($(this));});
+		$("#gdsStock").keyup(function(){ numCheck($(this));});
+
+		function numCheck(selector){
+			var tempVal = selector.val();
+			selector.val(tempVal.replace(regExp,""));
+		}
 	</script>
 </body>
 </html>

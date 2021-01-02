@@ -203,11 +203,19 @@
 			<version>5.0.8.RELEASE</version>
 		</dependency>
 		
+		<!-- ajax -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.6</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<!-- ajax end -->
 		
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>

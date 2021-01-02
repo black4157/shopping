@@ -23,9 +23,9 @@
 	header#header { }
 	nav#nav { }
 	section#container { }
-		section#content { float:right; width:700px; }
-		aside#aside { float:left; width:180px; }
-		section#container::after { content:""; display:block; clear:both; } 
+	section#content { float:right; width:700px; }
+	aside#aside { float:left; width:180px; }
+	section#container::after { content:""; display:block; clear:both; } 
 	footer#footer { background:#eee; padding:20px; }
 	
 	/* ---------- */
@@ -72,6 +72,54 @@
 	div.goods div.goodsInfo p.addToCart button {font-size:22px; padding:5px 10px; border:1px solid #eee; background:#eee;}
 	div.goods div.gdsDes {font-size:18px; clear:both; padding-top:30px;}
 </style>
+
+<style>
+	section.replyForm {padding:30px 0;}
+	section.replyForm div.input_area {margin:10px 0;}
+	section.replyForm textarea {font-size:16px; font-family:"맑은 고딕", verdana; padding:10px; width:500px; height:150px;}
+	section.replyForm button {font-size:20px; padding:5px 10px; margin:10px 0; background:#fff; border:1px solid #ccc;}
+	
+	section.replyList {padding:30px 0;}
+	section.replyList ol {padding:0; margin:0;}
+	section.replyList ol li {padding:10px 0; border-bottom:2px solid #eee;}
+	section.replyList div.userInfo{}
+	section.replyList div.userInfo .userName {font-size:24px; font-weight:bold;}
+	section.replyList div.userInfo .date {color:#999; display:inline-block; margin-left:10px;}
+	section.replyList div.replyContent {padding:10px; margin:20px 0;}
+	
+	section.replyList div.replyFooter {margin-bottom:10px;}
+	section.replyList div.replyFooter button {font-size:14px; border:1px solid #999; background:none; margin-right:10px;}
+</style>
+
+<script>
+	function replyList(){
+		var gdsNum = ${view.gdsNum};
+		$.getJSON("/shop/view/replyList" + "?n=" + gdsNum, function(data){
+			var str ="";
+	
+			$(data).each(function(){
+				console.log(data);
+	
+				var repDate = new Date(this.repDate);
+				repDate = repDate.toLocaleDateString("ko-US");
+	
+				str += "<li data-gdsNum='" + this.gdsNum + "'>"
+					+ "<div class='userInfo'>"
+					+ "<span class='userName'>" + this.userName + "</span>"
+					+ "<span class='date'>" + repDate + "</span>"
+					+ "</div>"
+					+ "<div class='replyContent'>" + this.repCon + "</div>"
+					+ "<div class='replyFooter'>"
+					+ "<button type='button' class='modify' data-repNum='" + this.repNum + "'>M</button>"
+					+ "<button type='button' class='delete' data-repNum='" + this.repNum + "'>D</button>"
+					+ "</div>"
+					+ "</li>";
+			});
+	
+			$("section.replyList ol").html(str);
+		});
+	}
+</script>
 </head>
 
 <body>
@@ -91,7 +139,6 @@
 		<section id="container">
 			<div id="container_box">
 				<section id="content">
-				
 					<form role="form" method="post">
 						<input type="hidden" name="gdsNum" value="${view.gdsNum }" />
 					</form>
@@ -146,11 +193,100 @@
 							
 							<p class="addToCart">
 								<button type="button">카트에 담기</button>
+							</p>
 						</div>
 						<div class="gdsDes">${view.gdsDes }</div>
 					</div>
-				</section>
 				
+					<div id="reply">
+						<c:if test="${member == null }" >
+							<p>소감을 남기시려면 <a href="/member/signin">로그인</a>해주세요</p>
+						</c:if>
+						
+						<c:if test="${member != null }" >
+						<section class="replyForm">
+							<form role="form" method="post" autocomplete="off">
+								<input type="hidden" name="gdsNum" id="gdsNum" value="${view.gdsNum }" />
+								<div class="input_area">
+									<textarea name="repCon" id="repCon"></textarea>
+								</div>
+								
+								<div class="input_area">
+									<button type="button" id="reply_btn">소감 남기기</button>
+									
+									<script>
+										$("#reply_btn").click(function(){
+
+											var formObj = $(".replyForm form[role='form']");
+											var gdsNum = $("#gdsNum").val();
+											var repCon = $("#repCon").val();
+
+											var data = {
+													gdsNum : gdsNum,
+													repCon : repCon
+												};
+
+											$.ajax({
+												url : "/shop/view/registReply",
+												type : "post",
+												data : data,
+												success : function(){
+													replyList();
+													$("#repCon").val("");
+												}
+											});
+										});
+									</script>
+								</div>
+							</form>
+						</section>
+						</c:if>
+						
+						<section class="replyList">
+							<ol>
+								<%-- <c:forEach items="${reply }" var="reply">
+								<li>
+									<div class="userInfo">
+										<span class="userName">${reply.userName }</span>
+										<span class="date"><fmt:formatDate value="${reply.repDate }" pattern="yyyy-MM-dd" /></span>
+									</div>
+									<div class="replyContent">${reply.repCon }</div>
+								</li>
+								</c:forEach> --%>
+							</ol>
+							
+							<script>
+								replyList();
+							</script>
+							<script>
+								$(document).on("click", ".delete", function(){
+
+									var deleteConfirm = comfirm("정말로 삭제하시겠습니까?");
+
+									if(deleteConfirm){
+										var data = {repNum : $(this).attr("data-repNum")};
+	
+										$.ajax({
+											url : "/shop/view/deleteReply",
+											type : "post",
+											data : data,
+											success : function(result){
+												if(result == 1){
+													replyList();
+												} else{
+													alert("작성자 본인만 할 수 있습니다.");
+												}
+											},
+											error : function(){
+												alert("로그인하셔야합니다.");
+											}
+										});
+									}
+								});
+							</script>
+						</section>
+					</div>
+				</section>
 				<aside id="aside">
 					<%@ include file="../include/aside.jsp"%>
 				</aside>

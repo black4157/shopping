@@ -14,6 +14,7 @@
 		where g.cateCode = #{cateCode} or c.cateCodeRef = #{cateCodeRef}
 	</select>
 
+
 	<!-- 카테고리별 상품 리스트 2차분류-->
 	<select id="list_2" resultType="GoodsViewVO">
 		select g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate, g.gdsImg, g.gdsThumbImg 
@@ -24,4 +25,35 @@
 	</select>
 
 
+	<!-- 댓글 -->
+	<insert id="registReply">
+		insert into tbl_reply(gdsNum, userId, repNum, repCon)
+		values(#{gdsNum}, #{userId}, tbl_reply_seq.nextval, #{repCon})
+	</insert>
+	
+	
+	<!-- 댓글 리스트 -->
+	<select id="replyList" resultType="ReplyListVO">
+		select r.gdsNum, r.userId, r.repNum, r.repCon, r.repDate, m.userName
+		from tbl_reply r 
+			inner join tbl_member m
+			on r.userId = m.userId
+		where gdsNum = #{gdsNum}
+	</select>
+	
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReply">
+		delete tbl_reply
+		where repNum = #{repNum}
+			and userId = #{userId}
+	</delete>
+	
+	
+	<!-- 아이디 체크 -->
+	<select id="replyUserIdCheck" resultType="String">
+		select userId
+		from tbl_reply
+		where repNum = #{repNum}
+	</select>
 </mapper>

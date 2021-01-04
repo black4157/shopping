@@ -50,10 +50,37 @@
 	</delete>
 	
 	
+	<!-- 댓글 수정 -->
+	<update id="modifyReply">
+		update tbl_reply
+		set repCon = #{repCon}
+		where repNum = #{repNum} and userId = #{userId}
+	</update>
+	
+	
 	<!-- 아이디 체크 -->
 	<select id="replyUserIdCheck" resultType="String">
 		select userId
 		from tbl_reply
 		where repNum = #{repNum}
+	</select>
+	
+	
+	<!-- 장바구니 담기 -->
+	<insert id="addCart">
+		insert into tbl_cart(cartNum, userId, gdsNum, cartStock)
+		values(tbl_cart_seq.nextval, #{userId}, #{gdsNum}, #{cartStock})
+	</insert>
+	
+	
+	<!-- 장바구니 리스트 -->
+	<select id="cartList" resultType="CartListVO">
+		select row_number() over(order by c.cartNum desc) as num,
+			c.cartNum, c.userId, c.gdsNum, c.cartStock, c.addDate,
+			g.gdsName, g.gdsPrice, g.gdsThumbImg
+		from tbl_cart c
+			inner join tbl_goods g
+			on c.gdsNum = g.gdsNum
+		where c.userId = #{userId}
 	</select>
 </mapper>

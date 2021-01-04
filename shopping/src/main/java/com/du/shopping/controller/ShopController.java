@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.du.shopping.domain.CartListVO;
+import com.du.shopping.domain.CartVO;
 import com.du.shopping.domain.GoodsViewVO;
 import com.du.shopping.domain.MemberVO;
 import com.du.shopping.domain.ReplyListVO;
@@ -104,5 +106,51 @@ public class ShopController {
 		}
 		
 		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/view/modifyReply", method=RequestMethod.POST)
+	public int modifyReply(ReplyVO reply, HttpSession session) throws Exception{
+		logger.info("modify reply");
+		
+		int result = 0;
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String userId = service.idCheck(reply.getRepNum());
+		
+		if(member.getUserId().equals(userId)) {
+			reply.setUserId(member.getUserId());
+			service.modifyReply(reply);
+			result = 1;
+		}
+		
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/view/addCart", method=RequestMethod.POST)
+	public int addCart(CartVO cart, HttpSession session) throws Exception{
+		int result = 0;
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		
+		if(member != null) {
+			cart.setUserId(member.getUserId());
+			service.addCart(cart);
+			result = 1;
+		}
+
+		return result;
+	}
+	
+	@RequestMapping(value="/cartList", method=RequestMethod.GET)
+	public void getCartList(HttpSession session, Model model) throws Exception{
+		logger.info("get cart list");
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		String userId = member.getUserId();
+		
+		List<CartListVO> cartList = service.cartList(userId);
+		
+		model.addAttribute("cartList", cartList);
 	}
 }

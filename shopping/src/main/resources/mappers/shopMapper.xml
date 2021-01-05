@@ -83,4 +83,55 @@
 			on c.gdsNum = g.gdsNum
 		where c.userId = #{userId}
 	</select>
+	
+	
+	<!-- 장바구니 삭제 -->
+	<delete id="deleteCart">
+		delete tbl_cart
+		where cartNum = #{cartNum} and userId = #{userId}
+	</delete>
+	
+	
+	<!-- 주문정보 -->
+	<insert id="orderInfo">
+		insert into tbl_order(orderId, userId, orderRec, userAddr1, userAddr2, userAddr3, amount, orderPhon)
+		values (#{orderId}, #{userId}, #{orderRec}, #{userAddr1}, #{userAddr2}, #{userAddr3}, #{amount}, #{orderPhon})
+	</insert>
+	
+	
+	<!-- 주문 상세정보 -->
+	<insert id="orderInfo_Details">
+		insert into tbl_order_details(orderDetailsNum, orderId, gdsNum, cartStock)
+		select tbl_order_details_seq.nextval, #{orderId}, gdsNum, cartStock
+			from tbl_cart
+	</insert>
+	
+	
+	<!-- 장바구니 비우기 -->
+	<delete id="cartAllDelete">
+		delete tbl_cart
+		where userId = #{userId}
+	</delete>
+	
+	
+	<!-- 특정 유저의 주문 목록 -->
+	<select id="orderList" resultType="OrderVO">
+		select orderId, userId, orderRec, userAddr1, userAddr2, userAddr3, orderPhon, amount, orderDate
+		from tbl_order
+		where userId = #{userId}
+	</select>
+	
+	
+	<!-- 특정 주문 목록 -->
+	<select id="orderView" resultType="OrderListVO">
+		select o.orderId, o.userId, o.orderRec, o.userAddr1, o.userAddr2, o.userAddr3, o.orderPhon, o.amount, o.orderDate,
+				d.orderDetailsNum, d.gdsNum, d.cartStock,
+				g.gdsName, g.gdsThumbImg, g.gdsPrice
+		from tbl_order o
+			inner join tbl_order_details d
+				on o.orderId = d.orderId
+			inner join tbl_goods g
+				on d.gdsNum = g.gdsNum
+		where o.userId = #{userId} and o.orderId = #{orderId}
+	</select>
 </mapper>

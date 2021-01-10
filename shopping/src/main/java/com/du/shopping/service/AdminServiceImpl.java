@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import com.du.shopping.domain.CategoryVO;
 import com.du.shopping.domain.GoodsVO;
 import com.du.shopping.domain.GoodsViewVO;
+import com.du.shopping.domain.OrderListVO;
+import com.du.shopping.domain.OrderVO;
+import com.du.shopping.domain.ReplyListVO;
 import com.du.shopping.persistence.AdminDAO;
 
 @Service
@@ -45,5 +48,35 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void goodsDelete(int gdsNum) throws Exception{
 		dao.goodsDelete(gdsNum);
+	}
+	
+	@Override
+	public List<OrderVO> orderList() throws Exception{
+		return dao.orderList();
+	}
+	
+	@Override
+	public List<OrderListVO> orderView(OrderVO order) throws Exception{
+		return dao.orderView(order);
+	}
+	
+	@Override
+	public void delivery(OrderVO order) throws Exception{
+		dao.delivery(order);
+	}
+	
+	@Override
+	public void changeStock(GoodsVO goods) throws Exception{
+		dao.changeStock(goods);
+	}
+	
+	@Override
+	public List<ReplyListVO> allReply() throws Exception{
+		return dao.allReply();
+	}
+	
+	@Override
+	public void deleteReply(int repNum) throws Exception{
+		dao.deleteReply(repNum);
 	}
 }

@@ -101,6 +101,7 @@ footer#footer div#footer_box { padding:0 20px; }
 								<p><span>수령인</span>${orderView.orderRec }</p>
 								<p><span>주소</span>(${orderView.userAddr1 }) ${orderView.userAddr2 } ${orderView.userAddr3 }</p>
 								<p><span>가격</span><fmt:formatNumber pattern="###,###,###" value="${orderView.amount }" /> 원</p>
+								<p><span>상태</span>${orderView.delivery }</p>
 							</c:if>
 						</c:forEach>
 					</div>

@@ -25,6 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.du.shopping.domain.CategoryVO;
 import com.du.shopping.domain.GoodsVO;
 import com.du.shopping.domain.GoodsViewVO;
+import com.du.shopping.domain.OrderListVO;
+import com.du.shopping.domain.OrderVO;
+import com.du.shopping.domain.ReplyListVO;
+import com.du.shopping.domain.ReplyVO;
 import com.du.shopping.service.AdminService;
 import com.du.shopping.utils.UploadFileUtils;
 import com.google.gson.JsonObject;
@@ -146,7 +150,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/goods/ckUpload", method = RequestMethod.POST)
-	public void postCKEditorImgUpload(HttpServletRequest req, HttpServletResponse res, @RequestParam MultipartFile upload) throws Exception{
+	public void postCKEditorImgUpload(HttpServletRequest req, HttpServletResponse res, @RequestParam MultipartFile upload) throws Exception {
 		logger.info("post CKEditor img upload");
 		
 		UUID uid = UUID.randomUUID();
@@ -190,5 +194,61 @@ public class AdminController {
 		}
 		
 		return;
+	}
+	
+	@RequestMapping(value="/shop/orderList", method=RequestMethod.GET)
+	public void getOrderList(Model model) throws Exception {
+		logger.info("get order list");
+		
+		List<OrderVO> orderList = adminService.orderList();
+		
+		model.addAttribute("orderList", orderList);
+		
+	}
+	
+	
+	@RequestMapping(value="/shop/orderView", method=RequestMethod.GET)
+	public void getOrderList(@RequestParam("n") String orderId, OrderVO order, Model model) throws Exception {
+		logger.info("get order view");
+		
+		order.setOrderId(orderId);
+		List<OrderListVO> orderView = adminService.orderView(order);
+		
+		model.addAttribute("orderView", orderView);
+	}
+	
+	@RequestMapping(value="/shop/orderView", method=RequestMethod.POST)
+	public String delivery(OrderVO order) throws Exception{
+		logger.info("post order view");
+		
+		adminService.delivery(order);
+		
+		List<OrderListVO> orderView = adminService.orderView(order);
+		GoodsVO goods = new GoodsVO();
+		
+		for(OrderListVO i : orderView) {
+			goods.setGdsNum(i.getGdsNum());
+			goods.setGdsStock(i.getCartStock());
+			adminService.changeStock(goods);
+		}
+		return "redirect:/admin/shop/orderView?n=" + order.getOrderId();
+	}
+	
+	@RequestMapping(value="/shop/allReply", method=RequestMethod.GET)
+	public void getAllReply(Model model) throws Exception{
+		logger.info("get all reply");
+		
+		List<ReplyListVO> reply = adminService.allReply();
+		
+		model.addAttribute("reply", reply);
+	}
+	
+	@RequestMapping(value="/shop/allReply", method=RequestMethod.POST)
+	public String postAllReply(ReplyVO reply) throws Exception{
+		logger.info("post all reply");
+		
+		adminService.deleteReply(reply.getRepNum());
+		
+		return "redirect:/admin/shop/allReply";
 	}
 }

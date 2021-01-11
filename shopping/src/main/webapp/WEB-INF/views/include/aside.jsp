@@ -12,7 +12,8 @@
 			<li><a href="/shop/list?c=104&l=2">산탄총</a></li>
 			<li><a href="/shop/list?c=105&l=2">지정사수소총</a></li>
 			<li><a href="/shop/list?c=106&l=2">저격소총</a></li>
-			<li><a href="/shop/list?c=107&l=2">기타</a></li>
+			<li><a href="/shop/list?c=107&l=2">근접</a></li>
+			<li><a href="/shop/list?c=108&l=2">투척</a></li>
 		</ul>
 	</li>
 	<li><a href="/shop/list?c=200&l=1">탄약</a></li>

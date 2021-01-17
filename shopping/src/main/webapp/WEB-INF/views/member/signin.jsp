@@ -5,47 +5,56 @@
 	
 <html>
 <head>
-<title>nose</title>
+	<title>배틀그라운드 쇼핑몰</title>
+	
+	<link rel="stylesheet" href="/resources/css/user/default.css" />
+	<link rel="stylesheet" href="/resources/css/member/signin.css" />
 </head>
 
 <body>
-	<div id="header">
-		<div id="header_box">
-			<%@ include file="../include/header.jsp"%>
-		</div>
-	</div>
-
-	<div id="nav">
-		<div id="nav_box">
-			<%@ include file="../include/nav.jsp"%>
-		</div>
-	</div>
-
-	<section id="content">
-		<form role="form" method="post" autocomplete="off">
-			<div class="input_area">
-				<label for="userId">아이디</label> 
-				<input type="email" id="userId" name="userId"  required="required" />
+	<div id="root">
+		<header id="header">
+			<div id="header_box">
+				<%@ include file="../include/header.jsp"%>
 			</div>
-
-			<div class="input_area">
-				<label for="userPass">패스워드</label> 
-				<input type="password" id="userPass" name="userPass" required="required" />
+		</header>
+	
+		<%-- 
+		
+		<nav id="nav">
+			<div id="nav_box">
+				<%@ include file="../include/nav.jsp"%>
 			</div>
-
-			<button type="submit" id="signin_btn" name="sign_btn">로그인</button>
-			
-			<c:if test="${msg == false }">
-				<p style="color:#f00;">로그인에 실패했습니다.</p>
-			</c:if>
-			
-		</form>
-	</section>
-
-	<div id="footer">
+		</nav> 
+		
+		--%>
+	
+		<section id="content">
+			<form role="form" method="post" autocomplete="off" class="loginForm">
+				<div class="input_area">
+					<h2>Login</h2>
+					<input type="email" id="userId" name="userId"  required="required" placeholder="ID"/>
+				</div>
+	
+				<div class="input_area">
+					<input type="password" id="userPass" name="userPass" required="required" placeholder="PW"/>
+				</div>
+	
+				<button type="submit" id="signin_btn" name="sign_btn">로그인</button>
+				<div class="bottomText">
+			        Don't you have ID? <a href="/member/signup">sign up</a>
+		        </div>
+				<c:if test="${msg == false }">
+					<p style="color:#f00;">로그인에 실패했습니다.</p>
+				</c:if>
+				
+			</form>
+		</section>
+	</div>
+	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../include/footer.jsp"%>
 		</div>
-	</div>
+	</footer>
 </body>
 </html>

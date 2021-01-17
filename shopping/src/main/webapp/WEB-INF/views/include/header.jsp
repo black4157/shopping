@@ -2,5 +2,5 @@
 	pageEncoding="UTF-8"%>
 
 <h1 class="title">
-	<a href="/">nose</a>
+	<a href="/">BATTLEGROUND</a>
 </h1>

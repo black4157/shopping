@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>nose</title>
+	<title>배틀그라운드 쇼핑몰</title>
 	
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 </head>
@@ -29,11 +29,12 @@
 			</aside>
 		</section>
 		
-		<footer id="footer">
+		
+	</div>
+	<footer id="footer">
 			<div id="footer_box">
 				<%@ include file="include/footer.jsp"%>
 			</div>
 		</footer>
-	</div>
 </body>
 </html>

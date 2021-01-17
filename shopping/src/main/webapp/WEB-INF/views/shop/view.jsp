@@ -5,44 +5,44 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>nose</title>
+	<title>배틀그라운드 쇼핑몰</title>
 
 	<script src="/resources/jquery/jquery-3.5.1.min.js"></script>
 	
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 	<link rel="stylesheet" href="/resources/css/user/shop/view.css" />
 
-<script>
-	function replyList(){
-		var gdsNum = ${view.gdsNum};
-		$.getJSON("/shop/view/replyList" + "?n=" + gdsNum, function(data){
-			var str ="";
-	
-			$(data).each(function(){
-				console.log(data);
-	
-				var repDate = new Date(this.repDate);
-				repDate = repDate.toLocaleDateString("ko-US");
-	
-				str += "<li data-repNum='" + this.repNum + "'>"
-					+ "<div class='userInfo'>"
-					+ "<span class='userName'>" + this.userName + "</span>"
-					+ "<span class='date'>" + repDate + "</span>"
-					+ "</div>"
-					+ "<div class='replyContent'>" + this.repCon + "</div>"
-					+ "<c:if test='${member != null}'>"
-					+ "<div class='replyFooter'>"
-					+ "<button type='button' class='modify' data-repNum='" + this.repNum + "'>M</button>"
-					+ "<button type='button' class='delete' data-repNum='" + this.repNum + "'>D</button>"
-					+ "</div>"
-					+ "</c:if>"
-					+ "</li>";
+	<script>
+		function replyList(){
+			var gdsNum = ${view.gdsNum};
+			$.getJSON("/shop/view/replyList" + "?n=" + gdsNum, function(data){
+				var str ="";
+		
+				$(data).each(function(){
+					console.log(data);
+		
+					var repDate = new Date(this.repDate);
+					repDate = repDate.toLocaleDateString("ko-US");
+		
+					str += "<li data-repNum='" + this.repNum + "'>"
+						+ "<div class='userInfo'>"
+						+ "<span class='userName'>" + this.userName + "</span>"
+						+ "<span class='date'>" + repDate + "</span>"
+						+ "</div>"
+						+ "<div class='replyContent'>" + this.repCon + "</div>"
+						+ "<c:if test='${member != null}'>"
+						+ "<div class='replyFooter'>"
+						+ "<button type='button' class='modify' data-repNum='" + this.repNum + "'>M</button>"
+						+ "<button type='button' class='delete' data-repNum='" + this.repNum + "'>D</button>"
+						+ "</div>"
+						+ "</c:if>"
+						+ "</li>";
+				});
+		
+				$("section.replyList ol").html(str);
 			});
-	
-			$("section.replyList ol").html(str);
-		});
-	}
-</script>
+		}
+	</script>
 </head>
 
 <body>
@@ -80,10 +80,17 @@
 								<span>가격</span><fmt:formatNumber pattern="###,###,###" value="${view.gdsPrice }" />원
 							</p>
 							
+							<c:if test="${view.gdsStock <= 0 }" >
+							<p class="gdsStock">재고가 없습니다.</p>
+							</c:if>
+							
+							<c:if test="${view.gdsStock > 0 }" >
 							<p class="gdsStock">
 								<span>재고</span><fmt:formatNumber pattern="###,###,###" value="${view.gdsStock }" />EA
 							</p>
-							<c:if test="${view.gdsStock != 0 }">
+							</c:if>
+							
+							<c:if test="${view.gdsStock > 0 }">
 							<p class="cartStock">
 								<span>구입 수량</span>
 								<button type="button" class="minus">-</button>
@@ -149,9 +156,6 @@
 							</p>
 							</c:if>
 							
-							<c:if test="${view.gdsStock <= 0 }" >
-								<p>상품 수량이 부족합니다.</p>
-							</c:if>
 						</div>
 						<div class="gdsDes">${view.gdsDes }</div>
 					</div>
@@ -263,11 +267,7 @@
 			</div>
 		</section>
 		
-		<footer id="footer">
-			<div id="footer_box">
-				<%@ include file="../include/footer.jsp"%>
-			</div>
-		</footer>
+		
 	</div>
 	
 	<div class="replyModal">
@@ -284,6 +284,35 @@
 		
 		<div class="modalBackground"></div>
 	</div>
+	
+	<footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../include/footer.jsp"%>
+		</div>
+	</footer>
+	<!-- <script>
+		$(function(){
+			Footer();
+
+			$(window).scroll(Footer).resize(Footer);
+		});
+
+		function Footer(){
+			document_height = $(document).height();
+			document_scrollTop = $(document).scrollTop();
+			window_height = $(window).height();
+			footer_height = $("#footer").height;
+
+			gap = document_height - footer_height - window_height;
+			bottom = document_scrollTop - gap;
+
+			if(document_scrollTop > gap){
+				$("#footer").css("bottom", bottom+"px");
+			} else{
+				$("#footer").css("bottom", 0);
+			}
+		}
+	</script> -->
 	
 	<script>
 		$(".modal_cancel").click(function(){

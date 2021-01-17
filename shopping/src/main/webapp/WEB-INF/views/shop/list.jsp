@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>nose</title>
+	<title>배틀그라운드 쇼핑몰</title>
 
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 	<link rel="stylesheet" href="/resources/css/user/shop/list.css" />
@@ -26,13 +26,17 @@
 		</nav>
 		
 		<section id="container">
+			<aside id="aside">
+				<%@ include file="../include/aside.jsp"%>
+			</aside>
+			
 			<div id="container_box">
 				<section id="content">
 					<ul>
 						<c:forEach items="${list }" var="list">
 						<li>
 							<div class="goodsThumb">
-								<img src="${list.gdsThumbImg }">
+								<a href="/shop/view?n=${list.gdsNum }"><img src="${list.gdsThumbImg }"></a>
 							</div>
 							<div class="goodsName">
 								<a href="/shop/view?n=${list.gdsNum }">${list.gdsName }</a>
@@ -42,17 +46,14 @@
 					</ul>
 				</section>
 				
-				<aside id="aside">
-					<%@ include file="../include/aside.jsp"%>
-				</aside>
+				
 			</div>
 		</section>
-
-		<footer id="footer">
-			<div id="footer_box">
-				<%@ include file="../include/footer.jsp"%>
-			</div>
-		</footer>
 	</div>
+	<footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../include/footer.jsp"%>
+		</div>
+	</footer>
 </body>
 </html>

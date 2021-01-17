@@ -5,42 +5,35 @@
 	
 <html>
 <head>
-<title>nose</title>
+	<title>회원가입 - 배틀그라운드 쇼핑몰</title>
+	
+	<link rel="stylesheet" href="/resources/css/user/default.css">
+	<link rel="stylesheet" href="/resources/css/member/signin.css">
 </head>
 
 <body>
-	<div id="header">
+	<header id="header">
 		<div id="header_box">
 			<%@ include file="../include/header.jsp"%>
 		</div>
-	</div>
-
-	<div id="nav">
-		<div id="nav_box">
-			<%@ include file="../include/nav.jsp"%>
-		</div>
-	</div>
+	</header>
 
 	<section id="content">
-		<form role="form" method="post" autocomplete="off">
+		<form role="form" method="post" autocomplete="off" class="loginForm">
 			<div class="input_area">
-				<label for="userId">아이디</label> <input type="email" id="userId"
-					name="userId" placeholder="example@email.com" required="required" />
+				<input type="email" id="userId" name="userId" placeholder="아이디를 입력해주세요 (이메일형식)" required="required" />
 			</div>
 
 			<div class="input_area">
-				<label for="userPass">패스워드</label> <input type="password"
-					id="userPass" name="userPass" required="required" />
+				<input type="password" id="userPass" name="userPass" placeholder="비밀번호를 입력해주세요" required="required" />
 			</div>
 
 			<div class="input_area">
-				<label for="userName">닉네임</label> <input type="text" id="userName"
-					name="userName" placeholder="닉네임을 입력해주세요" required="required" />
+				<input type="text" id="userName" name="userName" placeholder="닉네임을 입력해주세요" required="required" />
 			</div>
 
 			<div class="input_area">
-				<label for="userPhon">연락처</label> <input type="text" id="userPhon"
-					name="userPhon" placeholder="연락처를 입력해주세요" required="required" />
+				<input type="text" id="userPhon" name="userPhon" placeholder="연락처를 입력해주세요" required="required" />
 			</div>
 
 			<button type="submit" id="signup_btn" name="signup_btn">회원가입</button>
@@ -48,10 +41,10 @@
 		</form>
 	</section>
 
-	<div id="footer">
+	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../include/footer.jsp"%>
 		</div>
-	</div>
+	</footer>
 </body>
 </html>

@@ -6,13 +6,15 @@ section#content div.gdsInfo {float:right; width:calc(100% - 320px);}
 section#content div.gdsInfo {font-size:20px; line-height:2;}
 section#content div.gdsInfo span {display:inline-block; width:100px; font-weight:bold; margin-right:10px;}
 section#content div.gdsInfo .delete {text-align:right;}
-section#content div.gdsInfo .delete button {font-size:22px; padding:5px 10px; border:1px solid #eee; background:#eee;}
+section#content div.gdsInfo .delete button {font-size:22px; padding:5px 10px; border:1px solid #eee; background:#eee; border-radius:5px; color:#000; transition-duration:0.5s;}
+section#content div.gdsInfo .delete button:hover {color:#fff; background:#000;}
 
 .allCheck {float:left; width:200px;}
 .allCheck input {width:16px; height:16px;}
 .allCheck label {margin-left:10px;}
 .delBtn {float:right; width:300px; text-align:right;}
-.delBtn button {font-size:18px; padding:5px 10px; border:1px solid #eee; background:#eee;}
+.delBtn button {font-size:18px; padding:5px 10px; border:1px solid #eee; background:#eee; color:#000; transition-duration:0.5s; border-radius:5px;}
+.delBtn button:hover {color:#fff; background:#000;}
 
 .checkBox {float:left; width:30px;}
 .checkBox input {width:16px; height:16px;}
@@ -31,8 +33,9 @@ section#content div.gdsInfo .delete button {font-size:22px; padding:5px 10px; bo
 #userAddr2, #userAddr3 {width:250px;}
 
 .orderInfo .inputArea:last-child {margin-top:30px;}
-.orderInfo .inputArea button {font-size:20px; border:2px solid #ccc; padding:5px 10px; background:#fff; margin-right:20px;}
+.orderInfo .inputArea button {font-size:20px; border:none; padding:5px 10px; background:#eee; margin-right:20px; color:#000; transition-duration:0.5s; border-radius:5px;}
+.orderInfo .inputArea button:hover {color:#fff; background:#000;}
 
-.orderInfo .inputArea #sample2_address {width:230px;}
-.orderInfo .inputArea #sample2_detailAddress {width:280px;}
+.orderInfo .inputArea #sample2_address {width:300px; margin-bottom:10px;}
+.orderInfo .inputArea #sample2_detailAddress {width:300px;}
 .orderInfo .inputArea #sample2_exraAddress {display:none;}

@@ -5,7 +5,7 @@
 	
 <html>
 <head>
-	<title>배틀그라운드 쇼핑몰</title>
+	<title>로그인 - 배틀그라운드 쇼핑몰</title>
 	
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 	<link rel="stylesheet" href="/resources/css/member/signin.css" />

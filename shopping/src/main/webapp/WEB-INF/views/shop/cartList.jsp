@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>nose</title>
+	<title>장바구니 - 배틀그라운드 쇼핑몰</title>
 
 	<script src="/resources/jquery/jquery-3.5.1.min.js"></script>
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
@@ -311,11 +311,15 @@
 			</div>
 		</section>
 
-		<footer id="footer">
-			<div id="footer_box">
-				<%@ include file="../include/footer.jsp"%>
-			</div>
-		</footer>
 	</div>
+	
+	<footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../include/footer.jsp"%>
+		</div>
+	</footer>
+	<script>
+		$("#footer").css("position", "relative");
+	</script>
 </body>
 </html>

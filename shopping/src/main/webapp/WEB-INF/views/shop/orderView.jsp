@@ -5,7 +5,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>nose</title>
+	<title>주문조회 - 배틀그라운드 쇼핑몰</title>
 	
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 	<link rel="stylesheet" href="/resources/css/user/shop/orderView.css" />
@@ -64,12 +64,11 @@
 				</aside>
 			</div>
 		</section>
-
-		<footer id="footer">
-			<div id="footer_box">
-				<%@ include file="../include/footer.jsp"%>
-			</div>
-		</footer>
 	</div>
+	<footer id="footer">
+		<div id="footer_box">
+			<%@ include file="../include/footer.jsp"%>
+		</div>
+	</footer>
 </body>
 </html>

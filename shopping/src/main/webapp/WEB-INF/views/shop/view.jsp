@@ -32,8 +32,8 @@
 						+ "<div class='replyContent'>" + this.repCon + "</div>"
 						+ "<c:if test='${member != null}'>"
 						+ "<div class='replyFooter'>"
-						+ "<button type='button' class='modify' data-repNum='" + this.repNum + "'>M</button>"
-						+ "<button type='button' class='delete' data-repNum='" + this.repNum + "'>D</button>"
+						+ "<button type='button' class='modify' data-repNum='" + this.repNum + "'>수정</button>"
+						+ "<button type='button' class='delete' data-repNum='" + this.repNum + "'>삭제</button>"
 						+ "</div>"
 						+ "</c:if>"
 						+ "</li>";
@@ -106,6 +106,7 @@
 										} else{
 											$(".numBox").val(plusNum);
 										}
+										$(".numBox").css("animation-duration", "0.3s").css("animation-name", "animation");
 									});
 
 									$(".minus").click(function(){
@@ -117,6 +118,7 @@
 										} else{
 											$(".numBox").val(minusNum);
 										}
+										$(".numBox").css("animation-duration", "0.3s").css("animation-name", "animation");
 									});
 								</script>
 							</p>
@@ -181,7 +183,9 @@
 
 											var formObj = $(".replyForm form[role='form']");
 											var gdsNum = $("#gdsNum").val();
-											var repCon = $("#repCon").val();
+											var repCon = $("#repCon").val().replace(/(?:\r\n|\r|\n)/g, '<br/>');
+											$("#repCon").val(repCon);
+										
 
 											var data = {
 													gdsNum : gdsNum,
@@ -290,29 +294,9 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
-	<!-- <script>
-		$(function(){
-			Footer();
-
-			$(window).scroll(Footer).resize(Footer);
-		});
-
-		function Footer(){
-			document_height = $(document).height();
-			document_scrollTop = $(document).scrollTop();
-			window_height = $(window).height();
-			footer_height = $("#footer").height;
-
-			gap = document_height - footer_height - window_height;
-			bottom = document_scrollTop - gap;
-
-			if(document_scrollTop > gap){
-				$("#footer").css("bottom", bottom+"px");
-			} else{
-				$("#footer").css("bottom", 0);
-			}
-		}
-	</script> -->
+	<script>
+		$("#footer").css("position", "relative");
+	</script>
 	
 	<script>
 		$(".modal_cancel").click(function(){

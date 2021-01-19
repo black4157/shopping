@@ -7,6 +7,7 @@
 <head>
 	<title>주문 리스트 - 배틀그라운드 쇼핑몰</title>
 
+	<script src="/resources/jquery/jquery-3.5.1.min.js"></script>
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 	<link rel="stylesheet" href="/resources/css/user/shop/orderList.css" />
 	
@@ -56,6 +57,10 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
-
+	<script>
+		if($("#root").height() >= 486){
+			$("#footer").css("position", "relative");
+		}
+	</script>
 </body>
 </html>

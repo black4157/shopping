@@ -149,7 +149,7 @@
 							<script>
 								$(".orderOpne_btn").click(function(){
 									$(".orderInfo").slideDown();
-									$(".orderOpne_btn").slideUp();
+									//$(".orderOpne_btn").slideUp();
 								});
 							</script>
 						</div>
@@ -296,8 +296,8 @@
 								
 								<script>
 									$(".cancel_btn").click(function(){
-										$(".orderInfo").slideDown();
-										$(".orderOpne_bnt").slideUp();
+										$(".orderInfo").slideUp();
+										//$(".orderOpne_bnt").slideUp();
 									});
 							</script>
 							</div>
@@ -319,7 +319,9 @@
 		</div>
 	</footer>
 	<script>
-		$("#footer").css("position", "relative");
+		if($("#root").height() >= 300){
+			$("#footer").css("position", "relative");
+		}
 	</script>
 </body>
 </html>

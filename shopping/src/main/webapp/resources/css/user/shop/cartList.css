@@ -1,4 +1,4 @@
-section#content ul li {margin:10px 0; padding:10px 0; border-bottom:1px solid #999;}
+section#content ul li {margin:10px 0; padding:10px 0; border-bottom:1px solid #999; }
 section#content ul li img {width:250px; height:250px;}
 section#content ul li::after {content:""; display:block; clear:both;}
 section#content div.thumb {float:left; width:250px;}
@@ -23,7 +23,8 @@ section#content div.gdsInfo .delete button:hover {color:#fff; background:#000;}
 .listResult .sum {float:left; width:45%; font-size:22px;}
 
 .listResult .orderOpne {float:right; width:45%; text-align:right;}
-.listResult .orderOpne button {font-size:18px; padding:5px 10px; border:1px solid #999; background:#fff;}
+.listResult .orderOpne button {font-size:18px; padding:5px 10px; border:1px solid #999; background:#000; color:#fff; transition-duration:0.5s }
+.listResult .orderOpne button:hover {color:#000; background:#fff;}
 .listResult::after {content:""; display:block; clear:both;}
 
 .orderInfo {border:5px solid #eee; padding:20px; display:none;}

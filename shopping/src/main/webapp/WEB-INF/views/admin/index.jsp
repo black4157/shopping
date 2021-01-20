@@ -5,7 +5,7 @@
 <html>
 <head>
 
-	<title>admin</title>
+	<title>관리자모드</title>
 	
 	<script src="/resources/jquery/jquery-3.5.1.min.js"></script>
 	
@@ -18,25 +18,27 @@
 </head>
 
 <body>
-	<header id="header">
-		<div id="header_box">
-			<%@ include file="include/header.jsp"%>
-		</div>
-	</header>
-
-	<nav id="nav">
-		<div id="nav_box">
-			<%@ include file="include/nav.jsp"%>
-		</div>
-	</nav>
-
-	<section id="container">
-		<aside>
-			<%@ include file="include/aside.jsp"%>
-		</aside>
-		<div id="container_box">본문영역</div>
-	</section>
-
+	<div id="root">
+		<header id="header">
+			<div id="header_box">
+				<%@ include file="include/header.jsp"%>
+			</div>
+		</header>
+	
+		<nav id="nav">
+			<div id="nav_box">
+				<%@ include file="include/nav.jsp"%>
+			</div>
+		</nav>
+	
+		<section id="container">
+			<aside>
+				<%@ include file="include/aside.jsp"%>
+			</aside>
+			<div id="container_box"></div>
+		</section>
+	</div>
+	
 	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="include/footer.jsp"%>

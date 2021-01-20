@@ -13,4 +13,5 @@
 .gdsInfo span {font-size:20px; font-weight:bold; display:inline-block; width:100px; margin-right:10px;}
 
 .deliveryChange {text-align:right;}
-.delivery1_btn, .delivery2_btn {font-size:16px; background:#fff; border:1px solid #999; margin-left:10px;}
+.delivery1_btn, .delivery2_btn {font-size:16px; background:#eee; border:none; border-radius:5px; padding:10px; margin-left:10px; outline:none; transition-duration:0.5s;}
+.delivery1_btn:hover, .delivery2_btn:hover {background:#000; color:#fff;}

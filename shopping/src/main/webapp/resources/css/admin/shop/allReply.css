@@ -6,4 +6,5 @@
 .replyContent {padding:10px;}
 
 .replyControll {text-align:right; padding:10px;}
-.replyControll button {border:2px solid #999; background:#fff;}
+.replyControll button {border:2px solid #999; background:#fff; transition-duration:0.5s;}
+.replyControll button:hover {color:#fff; background:#000;}

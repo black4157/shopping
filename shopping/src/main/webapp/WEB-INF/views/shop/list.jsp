@@ -45,11 +45,30 @@
 						</c:forEach>
 					</ul>
 				</section>
-				
-				
 			</div>
 		</section>
 	</div>
+	
+	<!-- top버튼 -->
+	<button type="button" href="#" id="TopBtn">Top</button>
+	<script>
+		$(function() {
+			$(window).scroll(function(){
+				if($(this).scrollTop() > 200){
+					$("#TopBtn").fadeIn();
+				} else {
+					$("#TopBtn").fadeOut();
+				}
+			});
+
+			$("#TopBtn").click(function(){
+				$("html, body").animate({
+					scrollTop : 0
+				},400);
+			});
+		});
+	</script>
+	
 	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../include/footer.jsp"%>

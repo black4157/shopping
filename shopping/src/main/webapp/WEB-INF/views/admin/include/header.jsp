@@ -2,5 +2,5 @@
 	pageEncoding="UTF-8"%>
 
 <h1 class="title">
-	<a href="/admin/index">nose</a>
+	<a href="/admin/index">관리자모드</a>
 </h1>

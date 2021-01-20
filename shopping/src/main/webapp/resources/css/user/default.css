@@ -44,6 +44,8 @@ aside#aside li:hover > ul.low li a {background:#eee; border: 1px solid #eee;}
 aside#aside li:hover > ul.low li a:hover {background:#fff;}
 aside#aside li > ul.low li{width:100px;}
 
+#TopBtn {position:fixed; right:2%; float:right; margin-right:30px; bottom:50px; display:none; z-index:999;}
+
 footer#footer { 
 	margin-top:100px; 
 	border-radius:5px 5px 0 0; 

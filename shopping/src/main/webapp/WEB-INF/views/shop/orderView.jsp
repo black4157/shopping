@@ -10,6 +10,8 @@
 	<script src="/resources/jquery/jquery-3.5.1.min.js"></script>
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 	<link rel="stylesheet" href="/resources/css/user/shop/orderView.css" />
+	
+	<link rel="icon" href="/resources/images/gun.png" />
 
 </head>
 

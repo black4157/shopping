@@ -9,6 +9,8 @@
 	
 	<link rel="stylesheet" href="/resources/css/user/default.css">
 	<link rel="stylesheet" href="/resources/css/member/signin.css">
+	
+	<link rel="icon" href="/resources/images/gun.png" />
 </head>
 
 <body>

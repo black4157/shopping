@@ -8,10 +8,11 @@
 	<title>장바구니 - 배틀그라운드 쇼핑몰</title>
 
 	<script src="/resources/jquery/jquery-3.5.1.min.js"></script>
+	
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 	<link rel="stylesheet" href="/resources/css/user/shop/cartList.css" />
 
-
+	<link rel="icon" href="/resources/images/gun.png" />
 </head>
 
 <body>
@@ -338,7 +339,7 @@
 		</div>
 	</footer>
 	<script>
-		if($("#root").height() >= 300){
+		if($("#root").height() >= 420){
 			$("#footer").css("position", "relative");
 		}
 	</script>

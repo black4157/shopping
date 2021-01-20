@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="/resources/css/admin/index.css">
 	<link rel="stylesheet" href="/resources/css/admin/shop/orderList.css">
 
-
+	<link rel="icon" href="/resources/images/gun.png" />
 </head>
 
 <body>

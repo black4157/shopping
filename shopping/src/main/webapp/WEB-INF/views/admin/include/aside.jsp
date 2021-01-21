@@ -7,5 +7,5 @@
 	<li><a href="/admin/shop/orderList">주문 목록</a></li>
 	
 	<li><a href="/admin/shop/allReply">상품 소감</a></li>
-	<li><a href="">유저 목록</a></li>
+	<li><a href="/admin/member/list">유저 목록</a></li>
 </ul>

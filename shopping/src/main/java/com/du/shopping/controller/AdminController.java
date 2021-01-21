@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.du.shopping.domain.CategoryVO;
 import com.du.shopping.domain.GoodsVO;
 import com.du.shopping.domain.GoodsViewVO;
+import com.du.shopping.domain.MemberVO;
 import com.du.shopping.domain.OrderListVO;
 import com.du.shopping.domain.OrderVO;
 import com.du.shopping.domain.ReplyListVO;
@@ -250,5 +251,14 @@ public class AdminController {
 		adminService.deleteReply(reply.getRepNum());
 		
 		return "redirect:/admin/shop/allReply";
+	}
+	
+	@RequestMapping(value="/member/list", method=RequestMethod.GET)
+	public void getMemberList(Model model) throws Exception{
+		logger.info("get member list");
+		
+		List<MemberVO> memberList = adminService.memberList();
+		
+		model.addAttribute("memberList", memberList);
 	}
 }

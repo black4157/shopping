@@ -125,4 +125,10 @@
 		delete tbl_reply
 		where repNum = #{repNum}
 	</delete>
+	
+	<!-- 유저 목록 -->
+	<select id="memberList" resultType="memberVO">
+		select userId, userName, userPhon, userAddr1, userAddr2, userAddr3, regidate, verify
+		from tbl_member
+	</select>
 </mapper>

@@ -5,6 +5,7 @@ import java.util.List;
 import com.du.shopping.domain.CategoryVO;
 import com.du.shopping.domain.GoodsVO;
 import com.du.shopping.domain.GoodsViewVO;
+import com.du.shopping.domain.MemberVO;
 import com.du.shopping.domain.OrderListVO;
 import com.du.shopping.domain.OrderVO;
 import com.du.shopping.domain.ReplyListVO;
@@ -35,4 +36,5 @@ public interface AdminDAO {
 	
 	public void deleteReply(int repNum) throws Exception;
 	
+	public List<MemberVO> memberList() throws Exception;
 }

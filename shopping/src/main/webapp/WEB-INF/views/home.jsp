@@ -31,6 +31,60 @@
 			<aside id="aside">
 				<%@ include file="include/aside.jsp"%>
 			</aside>
+			
+			<div class="slide">
+				<img id="back" src="/resources/images/slide/back.png" alt="" width="100">
+				<ul>
+					<li><img src="/resources/images/slide/1.png" alt=""></li>
+					<li><img src="/resources/images/slide/2.png" alt=""></li>
+					<li><img src="/resources/images/slide/3.png" alt=""></li>
+					<li><img src="/resources/images/slide/4.png" alt=""></li>
+					<li><img src="/resources/images/slide/5.png" alt=""></li>
+					<li><img src="/resources/images/slide/6.png" alt=""></li>
+				</ul>
+				<img id="next" src="/resources/images/slide/next.png" alt="" width="100">
+			</div>
+			<script>
+				$(document).ready(function(){
+					var imgs;
+					var img_count;
+					var img_position = 1;
+
+					imgs = $(".slide ul");
+					img_count = imgs.children().length;
+
+					$("#back").click(function(){
+						back();
+					});
+					$("#next").click(function(){
+						next();
+					});
+
+					function back(){
+						if(1 < img_position){
+							imgs.animate({
+								left: "+=800px"
+							});
+							
+						img_position--;
+						} else{
+							alert("첫 사진입니다.");
+						}
+					}
+					
+					function next(){
+						if(img_count > img_position){
+							imgs.animate({
+								left: "-=800px"
+						});
+							
+						img_position++;
+						} else{
+							alert("마지막 사진입니다.");
+						}
+					}
+				});
+			</script>
 		</section>
 	</div>
 	
@@ -55,9 +109,14 @@
 	</script>
 	
 	<footer id="footer">
-			<div id="footer_box">
-				<%@ include file="include/footer.jsp"%>
-			</div>
-		</footer>
+		<div id="footer_box">
+			<%@ include file="include/footer.jsp"%>
+		</div>
+	</footer>
+	<script>
+		if($("#root").height() >= 420){
+			$("#footer").css("position", "relative");
+		}
+	</script>
 </body>
 </html>

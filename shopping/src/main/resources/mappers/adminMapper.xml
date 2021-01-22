@@ -7,11 +7,9 @@
 
 	<!-- 카테고리 호출 -->
 	<select id="category" resultType="CategoryVO">
-		select level, cateName,
-		cateCode, cateCodeRef
+		select level, cateName, cateCode, cateCodeRef
 		from goods_category
-		start with cateCodeRef is null
-		connect by prior cateCode = cateCodeRef
+		start with cateCodeRef is null connect by prior cateCode = cateCodeRef
 	</select>
 
 	<!-- 상품등록 -->
@@ -56,13 +54,13 @@
 	<update id="goodsModify">
 		update tbl_goods
 		set
-		gdsName = #{gdsName},
-		cateCode = #{cateCode},
-		gdsPrice = #{gdsPrice},
-		gdsStock = #{gdsStock},
-		gdsDes = #{gdsDes},
-		gdsImg = #{gdsImg},
-		gdsThumbImg = #{gdsThumbImg}
+			gdsName = #{gdsName},
+			cateCode = #{cateCode},
+			gdsPrice = #{gdsPrice},
+			gdsStock = #{gdsStock},
+			gdsDes = #{gdsDes},
+			gdsImg = #{gdsImg},
+			gdsThumbImg = #{gdsThumbImg}
 		where gdsNum = ${gdsNum}
 	</update>
 

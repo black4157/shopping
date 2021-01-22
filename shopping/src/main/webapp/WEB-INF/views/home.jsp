@@ -35,7 +35,7 @@
 			<div class="slide">
 				<img id="back" src="/resources/images/slide/back.png" alt="" width="100">
 				<ul>
-					<li><img src="/resources/images/slide/1.png" alt=""></li>
+					<li><a href="shop/list?c=103&l=2"><img src="/resources/images/slide/1.png" alt=""></a></li>
 					<li><img src="/resources/images/slide/2.png" alt=""></li>
 					<li><img src="/resources/images/slide/3.png" alt=""></li>
 					<li><img src="/resources/images/slide/4.png" alt=""></li>
@@ -63,7 +63,7 @@
 					function back(){
 						if(1 < img_position){
 							imgs.animate({
-								left: "+=800px"
+								left: "+=400px"
 							});
 							
 						img_position--;
@@ -75,7 +75,7 @@
 					function next(){
 						if(img_count > img_position){
 							imgs.animate({
-								left: "-=800px"
+								left: "-=400px"
 						});
 							
 						img_position++;
@@ -114,7 +114,7 @@
 		</div>
 	</footer>
 	<script>
-		if($("#root").height() >= 420){
+		if($("#root").height() >= 550){
 			$("#footer").css("position", "relative");
 		}
 	</script>

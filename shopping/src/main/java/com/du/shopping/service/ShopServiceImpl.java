@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.du.shopping.domain.CartListVO;
 import com.du.shopping.domain.CartVO;
+import com.du.shopping.domain.GoodsInfoVO;
 import com.du.shopping.domain.GoodsViewVO;
 import com.du.shopping.domain.OrderDetailVO;
 import com.du.shopping.domain.OrderListVO;
@@ -38,6 +39,11 @@ public class ShopServiceImpl implements ShopService{
 	@Override
 	public GoodsViewVO goodsView(int gdsNum) throws Exception{
 		return dao.goodsView(gdsNum);
+	}
+	
+	@Override
+	public GoodsInfoVO goodsInfo() throws Exception{
+		return dao.goodsInfo();
 	}
 	
 	@Override

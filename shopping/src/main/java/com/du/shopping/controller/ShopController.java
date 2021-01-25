@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.du.shopping.domain.CartListVO;
 import com.du.shopping.domain.CartVO;
+import com.du.shopping.domain.GoodsInfoVO;
 import com.du.shopping.domain.GoodsViewVO;
 import com.du.shopping.domain.MemberVO;
 import com.du.shopping.domain.OrderDetailVO;
@@ -54,6 +55,8 @@ public class ShopController {
 		GoodsViewVO view = service.goodsView(gdsNum);
 		model.addAttribute("view", view);
 		
+		GoodsInfoVO info = service.goodsInfo();
+		model.addAttribute("info", info);
 		//List<ReplyListVO> reply = service.replyList(gdsNum);
 		//model.addAttribute("reply", reply);
 	}

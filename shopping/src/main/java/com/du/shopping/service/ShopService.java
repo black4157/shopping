@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.du.shopping.domain.CartListVO;
 import com.du.shopping.domain.CartVO;
+import com.du.shopping.domain.GoodsInfoVO;
 import com.du.shopping.domain.GoodsViewVO;
 import com.du.shopping.domain.OrderDetailVO;
 import com.du.shopping.domain.OrderListVO;
@@ -18,6 +19,9 @@ public interface ShopService {
 	
 	//상품 조회
 	public GoodsViewVO goodsView(int gdsNum) throws Exception;
+	
+	//상품 정보
+	public GoodsInfoVO goodsInfo() throws Exception;
 	
 	//댓글
 	public void registReply(ReplyVO reply) throws Exception;

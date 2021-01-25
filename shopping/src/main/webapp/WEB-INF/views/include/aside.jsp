@@ -27,9 +27,9 @@
 	</li>
 	<li><a href="/shop/list?c=400&l=1">회복제</a>
 		<ul class="low">
-			<li><a href="/shop/list?c=301&l=2">회복</a></li>
-			<li><a href="/shop/list?c=302&l=2">부스트</a></li>
-			<li><a href="/shop/list?c=303&l=2">연료통</a></li>
+			<li><a href="/shop/list?c=401&l=2">회복</a></li>
+			<li><a href="/shop/list?c=402&l=2">부스트</a></li>
+			<li><a href="/shop/list?c=403&l=2">연료통</a></li>
 		</ul>
 	</li>
 </ul>

@@ -1,4 +1,4 @@
-div.goods div.goodsImg {float:left; width:350px;}
+div.goods div.goodsImg {float:left; width:350px; margin-left:100px;}
 div.goods div.goodsImg img{width:350px; height:auto;}
 
 div.goods div.goodsInfo {float:right; width:330px; fint-size:22px;}
@@ -11,6 +11,10 @@ div.goods div.goodsInfo p.addToCart {text-align:right;}
 div.goods div.goodsInfo p.addToCart button {font-size:16px; padding:5px 10px; border:1px solid #eee; background:#eee; border:none; outline:none; border-radius:5px; transition-duration:0.5s;}
 div.goods div.goodsInfo p.addToCart button:hover {color:#fff; background:#000;} 
 div.goods div.gdsDes {font-size:18px; clear:both; padding-top:30px;}
+
+div.goods div.Info { margin:0 0 50px 100px;} 
+div.goods div.Info p#title {display:inline-block; width:20%; font-weight:bold;}
+div.goods div.Info p#info {display:inline-block;}
 
 section.replyForm {padding:30px 0;}
 section.replyForm div.input_area {margin:10px 0;}

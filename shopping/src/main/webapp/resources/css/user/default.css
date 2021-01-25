@@ -12,7 +12,7 @@ div#root { width:1000px; margin:0 auto; }
 header#header { }
 nav#nav { margin:10px 0; padding:10px 0;}
 section#container { }
-section#content { float:right; width:800px; }
+section#content { float:right; width:900px; }
 aside#aside { float:left; width:100px; }
 section#container::after { content:""; display:block; clear:both; } 
 footer#footer { background:#eee; padding:20px; }

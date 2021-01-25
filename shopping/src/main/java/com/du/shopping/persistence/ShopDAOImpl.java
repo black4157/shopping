@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.du.shopping.domain.CartListVO;
 import com.du.shopping.domain.CartVO;
+import com.du.shopping.domain.GoodsInfoVO;
 import com.du.shopping.domain.GoodsViewVO;
 import com.du.shopping.domain.OrderDetailVO;
 import com.du.shopping.domain.OrderListVO;
@@ -42,6 +43,11 @@ public class ShopDAOImpl implements ShopDAO {
 	@Override
 	public GoodsViewVO goodsView(int gdsNum) throws Exception{
 		return sql.selectOne("com.du.shopping.mappers.adminMapper" + ".goodsView", gdsNum);
+	}
+	
+	@Override
+	public GoodsInfoVO goodsInfo() throws Exception{
+		return sql.selectOne(namespace + ".goodsInfo");
 	}
 	
 	@Override

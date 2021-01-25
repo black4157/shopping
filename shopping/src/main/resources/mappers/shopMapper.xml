@@ -25,6 +25,15 @@
 	</select>
 
 
+	<!-- 상품정보 -->
+	<select id="goodsInfo" resultType="GoodsInfoVO">
+		select g.gdsName, damage, magazine, ammunition, bullet_speed, stopping_power, effective_range, cs_interval, continuous_mode, attachment, acquisition
+		from tbl_goods_Info I 
+			inner join tbl_goods g
+			on I.gdsName = g.gdsName
+	</select>
+	
+	
 	<!-- 댓글 -->
 	<insert id="registReply">
 		insert into tbl_reply(gdsNum, userId, repNum, repCon)

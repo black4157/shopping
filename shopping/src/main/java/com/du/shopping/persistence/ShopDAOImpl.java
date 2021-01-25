@@ -46,8 +46,8 @@ public class ShopDAOImpl implements ShopDAO {
 	}
 	
 	@Override
-	public GoodsInfoVO goodsInfo() throws Exception{
-		return sql.selectOne(namespace + ".goodsInfo");
+	public GoodsInfoVO goodsInfo(int gdsNum) throws Exception{
+		return sql.selectOne(namespace + ".goodsInfo", gdsNum);
 	}
 	
 	@Override

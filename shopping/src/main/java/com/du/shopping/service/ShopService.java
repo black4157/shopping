@@ -21,7 +21,7 @@ public interface ShopService {
 	public GoodsViewVO goodsView(int gdsNum) throws Exception;
 	
 	//상품 정보
-	public GoodsInfoVO goodsInfo() throws Exception;
+	public GoodsInfoVO goodsInfo(int gdsNum) throws Exception;
 	
 	//댓글
 	public void registReply(ReplyVO reply) throws Exception;

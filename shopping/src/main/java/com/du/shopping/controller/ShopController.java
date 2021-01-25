@@ -55,7 +55,7 @@ public class ShopController {
 		GoodsViewVO view = service.goodsView(gdsNum);
 		model.addAttribute("view", view);
 		
-		GoodsInfoVO info = service.goodsInfo();
+		GoodsInfoVO info = service.goodsInfo(gdsNum);
 		model.addAttribute("info", info);
 		//List<ReplyListVO> reply = service.replyList(gdsNum);
 		//model.addAttribute("reply", reply);

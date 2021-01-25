@@ -33,6 +33,7 @@
 		from tbl_goods g
 			inner join goods_category c
 				on g.cateCode = c.cateCode
+		order by g.gdsNum
 	</select>
 	
 	

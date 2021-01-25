@@ -160,19 +160,20 @@
 							</p>
 							</c:if>
 						</div>
+						
 						<div class="gdsDes">${view.gdsDes }</div>
 						
 						<div class="Info">
-							<p id="title">데미지</p><p id="info">${info.damage }</p><br />
-							<p id="title">탄창(대용량)</p><p id="info">${info.magazine }</p><br />
-							<p id="title">탄약</p><p id="info">${info.ammunition }</p><br />
-							<p id="title">탄속</p><p id="info">${info.bullet_speed }</p><br />
-							<p id="title">저지력</p><p id="info">${info.stopping_power }</p><br />
-							<p id="title">유효 사거리</p><p id="info">${info.effective_range }</p><br />
-							<p id="title">연사속도</p><p id="info">${info.cs_interval }</p><br />
-							<p id="title">연사모드</p><p id="info">${info.continuous_mode }</p><br />
-							<p id="title">부착물</p><p id="info">${info.attachment }</p><br />
-							<p id="title">획득처</p><p id="info">${info.acquisition }</p><br />
+							<p id="title">데미지</p><p id="info"><c:out value="${info.damage }" /></p><br />
+							<p id="title">탄창(대용량)</p><p id="info"><c:out value="${info.magazine }" /></p><br />
+							<p id="title">탄약</p><p id="info"><c:out value="${info.ammunition }" /></p><br />
+							<p id="title">탄속</p><p id="info"><c:out value="${info.bullet_speed }" /></p><br />
+							<p id="title">저지력</p><p id="info"><c:out value="${info.stopping_power }" /></p><br />
+							<p id="title">유효 사거리</p><p id="info"><c:out value="${info.effective_range }" /></p><br />
+							<p id="title">연사속도</p><p id="info"><c:out value="${info.cs_interval }" /></p><br />
+							<p id="title">연사모드</p><p id="info"><c:out value="${info.continuous_mode }" /></p><br />
+							<p id="title">부착물</p><p id="info"><c:out value="${info.attachment }" /></p><br />
+							<p id="title">획득처</p><p id="info"><c:out value="${info.acquisition }" /></p><br />
 						</div>
 					</div>
 				
@@ -328,7 +329,7 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
-		<script>
+	<script>
 		if($("#root").height() >= 800){
 			$("#footer").css("position", "relative");
 		}

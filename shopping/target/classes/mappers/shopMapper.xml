@@ -27,10 +27,12 @@
 
 	<!-- 상품정보 -->
 	<select id="goodsInfo" resultType="GoodsInfoVO">
-		select g.gdsName, damage, magazine, ammunition, bullet_speed, stopping_power, effective_range, cs_interval, continuous_mode, attachment, acquisition
+		select g.gdsName, I.damage, I.magazine, I.ammunition, I.bullet_speed, I.stopping_power, I.effective_range, 
+				I.cs_interval, I.continuous_mode, I.attachment, I.acquisition
 		from tbl_goods_Info I 
 			inner join tbl_goods g
 			on I.gdsName = g.gdsName
+		where g.gdsNum = #{gdsNum}
 	</select>
 	
 	

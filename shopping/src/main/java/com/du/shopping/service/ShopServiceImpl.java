@@ -42,8 +42,8 @@ public class ShopServiceImpl implements ShopService{
 	}
 	
 	@Override
-	public GoodsInfoVO goodsInfo() throws Exception{
-		return dao.goodsInfo();
+	public GoodsInfoVO goodsInfo(int gdsNum) throws Exception{
+		return dao.goodsInfo(gdsNum);
 	}
 	
 	@Override

@@ -11,6 +11,7 @@
 .loginForm h2{ text-align:center; margin:30px;}
 
 .input_area{ border-bottom:2px solid #adadad; margin:40px; padding:10px 10px;}
+.input_area p input { margin: 10px 0px;}
 
 #userId, #userPass, #userName, #userPhon {
 	width:100%;

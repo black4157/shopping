@@ -43,7 +43,7 @@
 			<div id="container_box">
 				<h2>상품 등록</h2>
 	
-				<form role="form" method="post" autocomplete="off" enctype="multipart/form-data">
+				<form role="form" method="post" autocomplete="off" enctype="multipart/form-data" class="registerForm">
 	
 				<div class="inputArea"> 
 					<label>1차 분류</label>
@@ -109,7 +109,18 @@
 				</div>
 				
 				<div class="inputArea">
-					<button type="submit" id="register_Btn" class="btn btn-primary">등록</button>
+					<button type="button" id="register_Btn" class="btn btn-primary">등록</button>
+					<script>
+						$("#register_Btn").click(function(){
+							var regConfirm = confirm("정말로 등록하시겠습니까?");
+
+							if(regConfirm == true){
+								$(".registerForm").submit();
+							} else{
+								return;
+							}
+						});
+					</script>
 				</div>
 				
 				</form>

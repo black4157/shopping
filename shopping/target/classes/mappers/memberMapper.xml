@@ -7,8 +7,8 @@
 
 	<!-- 회원가입 -->
 	<insert id="signup">
-		insert into tbl_member(userId, userPass, userName, userPhon)
-		values(#{userId}, #{userPass}, #{userName}, #{userPhon})
+		insert into tbl_member(userId, userPass, userName, userPhon, userAddr1, userAddr2, userAddr3)
+		values(#{userId}, #{userPass}, #{userName}, #{userPhon}, #{userAddr1}, #{userAddr2}, #{userAddr3})
 	</insert>
 	
 	<!-- 로그인 -->

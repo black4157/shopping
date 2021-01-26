@@ -89,7 +89,9 @@ public class AdminController {
 		logger.info("get goods list");
 
 		List<GoodsViewVO> list = adminService.goodslist();
-
+		List<CategoryVO> category = null;
+		category = adminService.category();
+		model.addAttribute("category", JSONArray.fromObject(category));
 		model.addAttribute("list", list);
 	}
 

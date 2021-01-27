@@ -29,13 +29,13 @@
 	
 	<select id="goodslist" resultType="GoodsViewVO">
 		select
-			g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate, g.gdsImg, g.gdsThumbImg 
+			g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate, g.gdsImg, g.gdsThumbImg , g.hit
 		from tbl_goods g
 			inner join goods_category c
 				on g.cateCode = c.cateCode
 		order by g.gdsNum
 	</select>
-	
+
 	
 	<!-- <select id="goodsView" resultType="GoodsVO"> select gdsNum, gdsName, 
 		cateCode, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate from tbl_goods where 
@@ -44,13 +44,22 @@
 	<!-- 상품조회 +카테고리 조인 -->
 	<select id="goodsView" resultType="GoodsViewVO">
 		select
-		g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate, g.gdsImg, g.gdsThumbImg 
+		g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate, g.gdsImg, g.gdsThumbImg, g.hit
 		from tbl_goods g
 			inner join goods_category c
 			on g.cateCode = c.cateCode
 		where g.gdsNum = #{gdsNum}
 	</select>
 
+		
+	<!-- 상품 조회수 -->
+	<update id="hit" parameterType="int">
+		update tbl_goods
+		set hit = hit + 1
+		where gdsNum = #{gdsNum}
+	</update>
+	
+	
 	<!-- 상품 수정 -->
 	<update id="goodsModify">
 		update tbl_goods

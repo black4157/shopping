@@ -35,7 +35,7 @@
 			<div class="slide">
 				<img id="back" src="/resources/images/slide/back.png" alt="" width="100">
 				<ul>
-					<li><a href="shop/list?c=103&l=2"><img src="/resources/images/slide/1.png" alt=""></a></li>
+					<li><a href="shop/view?n=83"><img src="/resources/images/slide/1.png" alt=""></a></li>
 					<li><img src="/resources/images/slide/2.png" alt=""></li>
 					<li><img src="/resources/images/slide/3.png" alt=""></li>
 					<li><img src="/resources/images/slide/4.png" alt=""></li>
@@ -68,7 +68,11 @@
 							
 						img_position--;
 						} else{
-							alert("첫 사진입니다.");
+							imgs.animate({
+								left: "-=2000px"
+							});
+							img_position = 6;
+							//alert("첫 사진입니다.");
 						}
 					}
 					
@@ -80,7 +84,11 @@
 							
 						img_position++;
 						} else{
-							alert("마지막 사진입니다.");
+							imgs.animate({
+								left: "+=2000px"
+							});
+							img_position = 1;
+							//alert("마지막 사진입니다.");
 						}
 					}
 				});

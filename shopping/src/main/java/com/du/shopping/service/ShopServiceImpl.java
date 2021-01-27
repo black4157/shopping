@@ -92,27 +92,38 @@ public class ShopServiceImpl implements ShopService{
 	}
 	
 	//주문 정보
+	@Override
 	public void orderInfo(OrderVO order) throws Exception{
 		dao.orderInfo(order);
 	}
 	
 	//주문 상세정보
+	@Override
 	public void orderInfo_Details(OrderDetailVO orderDetail) throws Exception{
 		dao.orderInfo_Details(orderDetail);
 	}
 	
 	//장바구니 비우기
+	@Override
 	public void cartAllDelete(String userId) throws Exception{
 		dao.cartAllDelete(userId);
 	}
 	
 	//주문목록
+	@Override
 	public List<OrderVO> orderList(OrderVO order) throws Exception{
 		return dao.orderList(order);
 	}
 	
 	//특정 주문목록
+	@Override
 	public List<OrderListVO> orderView(OrderVO order) throws Exception{
 		return dao.orderView(order);
+	}
+	
+	//상품 조회수
+	@Override
+	public int hit(int gdsNum) throws Exception{
+		return dao.hit(gdsNum);
 	}
 }

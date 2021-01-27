@@ -43,7 +43,7 @@
 								<a href="/shop/view?n=${list.gdsNum }"><img src="${list.gdsThumbImg }"></a>
 							</div>
 							<div class="goodsName">
-								<a href="/shop/view?n=${list.gdsNum }">${list.gdsName }</a>
+								<a href="/shop/view?n=${list.gdsNum }">${list.gdsName }( ${list.hit } )</a>
 							</div>
 						</li>
 						</c:forEach>

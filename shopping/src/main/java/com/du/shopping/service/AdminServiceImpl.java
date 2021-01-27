@@ -85,5 +85,5 @@ public class AdminServiceImpl implements AdminService{
 	public List<MemberVO> memberList() throws Exception{
 		return dao.memberList();
 	}
-	
+
 }

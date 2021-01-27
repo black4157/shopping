@@ -12,6 +12,14 @@ public class GoodsVO {
 	private String gdsImg;
 	private Date gdsDate;
 	private String gdsThumbImg;
+	private int hit;
+	
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	public int getGdsNum() {
 		return gdsNum;
 	}
@@ -70,7 +78,7 @@ public class GoodsVO {
 	public String toString() {
 		return "GoodsVO [gdsNum=" + gdsNum + ", gdsName=" + gdsName + ", cateCode=" + cateCode + ", gdsPrice="
 				+ gdsPrice + ", gdsStock=" + gdsStock + ", gdsDes=" + gdsDes + ", gdsImg=" + gdsImg + ", gdsDate="
-				+ gdsDate + ", gdsThumbImg=" + gdsThumbImg + "]";
+				+ gdsDate + ", gdsThumbImg=" + gdsThumbImg + ", hit=" + hit + "]";
 	}
 	
 	

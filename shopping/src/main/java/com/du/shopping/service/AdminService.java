@@ -37,4 +37,5 @@ public interface AdminService {
 	public void deleteReply(int repNum) throws Exception;
 	
 	public List<MemberVO> memberList() throws Exception;
+
 }

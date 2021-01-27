@@ -61,4 +61,7 @@ public interface ShopService {
 	
 	//특정 주문목록
 	public List<OrderListVO> orderView(OrderVO order) throws Exception; 
+	
+	//상품 조회수
+	public int hit(int gdsNum) throws Exception;
 }

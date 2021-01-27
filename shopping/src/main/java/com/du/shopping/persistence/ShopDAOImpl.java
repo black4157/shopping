@@ -119,4 +119,9 @@ public class ShopDAOImpl implements ShopDAO {
 	public List<OrderListVO> orderView(OrderVO order) throws Exception{
 		return sql.selectList(namespace + ".orderView", order);
 	}
+	
+	//상품 조회수
+	public int hit(int gdsNum) throws Exception{
+		return sql.update("com.du.shopping.mappers.adminMapper" + ".hit", gdsNum);
+	}
 }

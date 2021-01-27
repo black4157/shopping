@@ -17,6 +17,15 @@ public class GoodsViewVO {
 	
 	private String gdsThumbImg;
 	
+	private int hit;
+	
+	
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	public int getGdsNum() {
 		return gdsNum;
 	}
@@ -89,6 +98,6 @@ public class GoodsViewVO {
 		return "GoodsViewVO [gdsNum=" + gdsNum + ", gdsName=" + gdsName + ", cateCode=" + cateCode + ", gdsPrice="
 				+ gdsPrice + ", gdsStock=" + gdsStock + ", gdsDes=" + gdsDes + ", gdsImg=" + gdsImg + ", gdsDate="
 				+ gdsDate + ", cateCodeRef=" + cateCodeRef + ", cateName=" + cateName + ", gdsThumbImg=" + gdsThumbImg
-				+ "]";
+				+ ", hit=" + hit + "]";
 	}
 }

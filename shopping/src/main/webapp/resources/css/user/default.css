@@ -53,5 +53,8 @@ aside#aside li > ul.low li{width:100px;}
 
 #TopBtn {position:fixed; right:2%; float:right; margin-right:30px; bottom:50px; display:none; z-index:999;}
 
+div.GoodsPopular {margin:50px auto; text-align:center;}
+
+
 footer#footer {margin-top:100px; border-radius:5px 5px 0 0; position:absolute; bottom:0; width:100%; }
 footer#footer div#footer_box { padding:0 20px; }

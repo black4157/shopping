@@ -3,5 +3,7 @@ section#content ul li:hover { }
 section#content ul li:hover > div.goodsName { font-weight:bold;}
 
 section#content div.goodsThumb img { width:250px; height:250px; margin-left:20px;}
-section#content div.goodsName { padding:10px 0; text-align:center; }
+section#content div.goodsName { padding:10px 10px 10px 100px; float:left; display:inline-block; }
 section#content div.goodsName a { color:#000; text-decoration:none;}
+section#content div.goodsHit { padding:10px; float:right; display:inline-block;}
+section#content div.goodsHit a {font-size:9px; color:#000; text-decoration:none;}

@@ -18,6 +18,8 @@ public interface AdminService {
 	
 	public List<GoodsViewVO> goodslist() throws Exception;
 	
+	public List<GoodsViewVO> populargoodslist() throws Exception;
+	
 	public GoodsViewVO goodsView(int gdsNum) throws Exception;
 	
 	public void goodsModify(GoodsVO vo) throws Exception; 

@@ -93,6 +93,18 @@
 					}
 				});
 			</script>
+			
+			<div class="GoodsPopular">
+				<h2>★ ☆ 인 기 상 품 ☆ ★</h2>
+				<div>
+					<c:forEach items="${populargoodslist}" var="populargoodslist">
+					<c:if test="${populargoodslist.hit ge 1 }">
+						<p>${populargoodslist.gdsName}</p>
+					</c:if>
+					</c:forEach>
+				</div>
+			</div>
+			
 		</section>
 	</div>
 	

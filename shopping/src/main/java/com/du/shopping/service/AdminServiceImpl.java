@@ -37,6 +37,11 @@ public class AdminServiceImpl implements AdminService{
 	}
 	
 	@Override
+	public List<GoodsViewVO> populargoodslist() throws Exception{
+		return dao.populargoodslist();
+	}
+	
+	@Override
 	public GoodsViewVO goodsView(int gdsNum) throws Exception{
 		return dao.goodsView(gdsNum);
 	}

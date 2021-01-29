@@ -97,9 +97,23 @@
 			<div class="GoodsPopular">
 				<h2>★ ☆ 인 기 상 품 ☆ ★</h2>
 				<div>
-					<c:forEach items="${populargoodslist}" var="populargoodslist">
-					<c:if test="${populargoodslist.hit ge 1 }">
-						<p>${populargoodslist.gdsName}</p>
+					<c:forEach items="${populargoodslist}" var="populargoodslist" varStatus="status">
+					<c:if test="${populargoodslist.hit ge 1 && status.count le 5 }">
+					<li>
+						<c:choose>
+							<c:when test="${status.count eq 1}"><h3>1st(${populargoodslist.hit})</h3></c:when>
+							<c:when test="${status.count eq 2}"><h3>2nd(${populargoodslist.hit})</h3></c:when>
+							<c:when test="${status.count eq 3}"><h3>3rd(${populargoodslist.hit})</h3></c:when>
+							<c:when test="${status.count eq 4}"><h3>4th(${populargoodslist.hit})</h3></c:when>
+							<c:when test="${status.count eq 5}"><h3>5th(${populargoodslist.hit})</h3></c:when>
+						</c:choose>
+						
+						<a href="/shop/view?n=${populargoodslist.gdsNum }">
+							<img src="${populargoodslist.gdsThumbImg}">
+							${populargoodslist.gdsName}
+						</a>
+						
+					</li>
 					</c:if>
 					</c:forEach>
 				</div>

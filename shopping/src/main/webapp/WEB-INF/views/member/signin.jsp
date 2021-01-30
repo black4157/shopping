@@ -35,11 +35,11 @@
 			<form role="form" method="post" autocomplete="off" class="loginForm">
 				<div class="input_area">
 					<h2>Login</h2>
-					<input type="email" id="userId" name="userId"  required="required" placeholder="ID"/>
+					<input type="email" id="userId" name="userId" required="required" placeholder="ID" style="ime-mode:disabled;"/>
 				</div>
 	
 				<div class="input_area">
-					<input type="password" id="userPass" name="userPass" required="required" placeholder="PW"/>
+					<input type="password" id="userPass" name="userPass" required="required" placeholder="PW" style="ime-mode:disabled;"/>
 				</div>
 	
 				<button type="submit" id="signin_btn" name="sign_btn">로그인</button>

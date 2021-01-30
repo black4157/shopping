@@ -123,7 +123,7 @@
 	</div>
 	
 	<!-- top버튼 -->
-	<button type="button" href="#" id="TopBtn">Top</button>
+	<button type="button" href="#" id="TopBtn"><img src="/resources/images/top.png" id="TopImg"></button>
 	<script>
 		$(function() {
 			$(window).scroll(function(){

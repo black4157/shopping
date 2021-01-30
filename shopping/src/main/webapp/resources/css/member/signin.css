@@ -1,3 +1,4 @@
+#container {height:100%;}
 .loginForm {
 	position:absolute;
 	width:400px;
@@ -11,9 +12,11 @@
 .loginForm h2{ text-align:center; margin:30px;}
 
 .input_area{ border-bottom:2px solid #adadad; margin:40px; padding:10px 10px;}
+.input_area p {display:flex;}
 .input_area p input { margin: 10px 0px;}
 
-#userId, #userPass, #userName, #userPhon {
+#userId, #userPass, #userName, #userPhon, 
+#sample2_postcode, #sample2_address, #sample2_detailAddress, #sample2_extraAddress {
 	width:100%;
 	border:none;
 	outline:none;

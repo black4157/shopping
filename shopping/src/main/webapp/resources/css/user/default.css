@@ -51,13 +51,15 @@ aside#aside li > ul.low li{width:100px;}
 #back {position:absolute; top:150px; left:0; cursor:pointer; z-index:1; width:30px; height:30px;}
 #next {position:absolute; top:150px; right:0; cursor:pointer; z-index:1; width:30px; height:30px;}
 
-#TopBtn {position:fixed; right:2%; float:right; margin-right:30px; bottom:50px; display:none; z-index:999;}
-
 div.GoodsPopular {width:1000px; margin:50px auto; text-align:center;}
 div.GoodsPopular h2 {padding:50px;}
 div.GoodsPopular li {display:inline-block; margin:15px;}
 div.GoodsPopular img {width:150px; height:150px;}
 div.GoodsPopular a {color:#000; text-decoration:none; display:inline-grid;}
+
+
+#TopBtn {outline:none; border:none; position:fixed; right:2%; float:right; margin-right:30px; bottom:50px; display:none; z-index:999; background:none;}
+#TopImg {width:15px; height:30px;}
 
 footer#footer {margin-top:100px; border-radius:5px 5px 0 0; position:absolute; bottom:0; width:100%; }
 footer#footer div#footer_box { padding:0 20px; }

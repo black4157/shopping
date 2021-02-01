@@ -28,6 +28,26 @@ create table tbl_goods (
     primary key(gdsNum)  
 );
 
+alter table tbl_goods add(hit number default 0);
+/* 물품이름으로 물품과 물품정보테이블 연결*/
+alter table tbl_goods add constraint tbl_goods_gdsName foreign key(gdsName) references tbl_goods_info(gdsName);
+
+/* 물품정보 테이블 */
+create table tbl_goods_info(
+    gdsName         varchar2(50)    not null,
+    damage          number          not null,
+    magazine        varchar2(50)    null,
+    ammunition      varchar2(50)    null,
+    Bullet_Speed    varchar2(50)    null,
+    Stopping_power  varchar2(50)    null,
+    Effective_Range varchar2(50)    null,
+    CS_interval     varchar2(50)    null,
+    Continuous_mode varchar2(50)    null,
+    attachment      varchar2(50)    null,
+    Acquisition     varchar2(50)    null,
+    primary key(gdsName)
+);
+
 /* 카테고리 테이블 */
 create table goods_category (
     cateName     varchar2(20)    not null,
@@ -48,6 +68,7 @@ insert into goods_category(cateName, cateCode, catecoderef) values ('DMR', '106'
 insert into goods_category(cateName, cateCode, catecoderef) values ('LMG', '107', '100');
 insert into goods_category(cateName, cateCode, catecoderef) values ('근접', '108', '100');
 insert into goods_category(cateName, cateCode, catecoderef) values ('투척', '109', '100');
+insert into goods_category(cateName, cateCode, catecoderef) values ('기타', '110', '100');
 insert into goods_category(cateName, cateCode) values ('탄약', '200');
 insert into goods_category(cateName, cateCode) values ('방어구', '300');
 insert into goods_category(cateName, cateCode, catecoderef) values ('헬멧', '301', '300');
@@ -75,7 +96,7 @@ create table tbl_reply(
 create sequence tbl_reply_seq;
 
 /* 물품번호, 유저번호로 댓글 연결 */
-alter table tbl_reply add constraint tbl_reply_gdsNum foreign key(gdsNum) references tbl_goods(gdsNum);
+alter table tbl_reply add constraint tbl_reply_gdsNum foreign key(gdsNum) references tbl_goods(gdsNum) on delete cascade;
 alter table tbl_reply add constraint tbl_reply_userId foreign key(userId) references tbl_member(userId);
 
 /* 장바구니 테이블 */

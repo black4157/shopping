@@ -46,7 +46,9 @@
 					<select class="category1">
 						<option value="">전체</option>
 					</select>
+					
 					<br />
+					
 					<label>2차 분류</label>
 					<select class="category2" name="cateCode">
 						<option value="">전체</option>

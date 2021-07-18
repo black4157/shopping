@@ -82,7 +82,7 @@
 		</div>
 	</footer>
 	<script>
-		if($("#root").height() >= 800){
+		if($("#root").height() >= 500){
 			$("#footer").css("position", "relative");
 		}
 	</script>

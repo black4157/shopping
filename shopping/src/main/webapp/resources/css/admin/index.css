@@ -9,6 +9,7 @@ header#header h1 a {color:#000; font-weight:bold;}
 
 nav#nav {padding:10px; text-align:right;}
 nav#nav ul li {display:inline-block; margin-left:10px;}
+nav#nav ul li a{color:#000;}
 
 section#container {padding:20px 0; border-top:2px solid #eee; border-bottom:2px solid #eee;}
 section#container::after {content:""; display:block; clear:both;}
@@ -18,7 +19,7 @@ div#container_box h2 {margin-bottom:20px;}
 
 aside {float:left; width:200px;}
 aside ul li {text-align:center; margin-bottom:10px;}
-aside ul li a {display:block; width:100%; padding:10px 0;}
+aside ul li a {display:block; width:100%; padding:10px 0; color:#000;}
 aside ul li a:hover {background:#eee;}
 
 footer#footer {background:#f9f9f9; padding:20px; margin-top:100px; border-radius:5px 5px 0 0; position:absolute; bottom:0; width:100%; }

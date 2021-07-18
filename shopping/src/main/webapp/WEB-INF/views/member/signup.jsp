@@ -27,19 +27,19 @@
 				<form role="form" method="post" autocomplete="off" class="loginForm">
 				
 					<div class="input_area">
-						<input type="email" id="userId" name="userId" placeholder="아이디를 입력해주세요 (이메일형식)" required="required" />
+						<input type="email" id="userId" name="userId" placeholder="아이디를 입력해 주세요. (test@gmail.com)" required="required" />
 					</div>
 		
 					<div class="input_area">
-						<input type="password" id="userPass" name="userPass" placeholder="비밀번호를 입력해주세요" required="required" />
+						<input type="password" id="userPass" name="userPass" placeholder="비밀번호를 입력해 주세요." required="required" />
 					</div>
 		
 					<div class="input_area">
-						<input type="text" id="userName" name="userName" placeholder="닉네임을 입력해주세요" required="required" />
+						<input type="text" id="userName" name="userName" placeholder="닉네임을 입력해 주세요." required="required" />
 					</div>
 		
 					<div class="input_area">
-						<input type="text" id="userPhon" name="userPhon" placeholder="연락처를 입력해주세요" required="required" />
+						<input type="text" id="userPhon" name="userPhon" placeholder="연락처를 입력해 주세요." required="required" />
 					</div>
 					
 					<div class="input_area">

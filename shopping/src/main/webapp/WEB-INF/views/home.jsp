@@ -122,25 +122,7 @@
 		</section>
 	</div>
 	
-	<!-- top버튼 -->
-	<button type="button" href="#" id="TopBtn"><img src="/resources/images/top.png" id="TopImg"></button>
-	<script>
-		$(function() {
-			$(window).scroll(function(){
-				if($(this).scrollTop() > 200){
-					$("#TopBtn").fadeIn();
-				} else {
-					$("#TopBtn").fadeOut();
-				}
-			});
-
-			$("#TopBtn").click(function(){
-				$("html, body").animate({
-					scrollTop : 0
-				},400);
-			});
-		});
-	</script>
+	<%@ include file = "include/TopBtn.jsp"%>
 	
 	<footer id="footer">
 		<div id="footer_box">

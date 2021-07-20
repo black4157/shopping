@@ -1,4 +1,4 @@
-#container {height:100%;}
+#container {height:100%; background:rgba(255,255,255,0.9); margin-top:20px; padding:20px;}
 .loginForm {
 	position:absolute;
 	width:450px;
@@ -7,6 +7,7 @@
 	top:40%;
 	left:50%;
 	transform:translate(-50%,-50%);
+	margin-top:20px;
 }
 
 .loginForm h2{ text-align:center; margin:30px;}
@@ -31,9 +32,9 @@
 	width:80%;
 	height:40px;
 	font-weight:bold;
-	border:none;
-	transition-duration:0.7s;
+	transition-duration:0.5s;
 }
+
 #signin_btn:hover, #signup_btn:hover{ color:#fff; background:#000;}
 
 .bottomText { text-align:center; text-decoration:none;}

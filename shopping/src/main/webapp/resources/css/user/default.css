@@ -6,7 +6,7 @@ html {position:relative; min-height:100%; margin:0;}
     font-weight: normal;
     font-style: normal;
 }
-body { margin:0; padding:0; font-family:'Cafe24Ssurround', verdana; overflow-x:hidden; height:100%; background-image:url('/resources/images/background.png'); }
+body { margin:0; padding:0; font-family:'Cafe24Ssurround', verdana; overflow-x:hidden; height:100%; background-image:url('/resources/images/background.png');}
 a { color:#05f; text-decoration:none; }
 a:hover { text-decoration:underline; }
 
@@ -15,7 +15,7 @@ ul, lo, li { margin:0; padding:0; list-style:none; }
 
 /* ---------- */
 
-div#root { width:1000px; margin:0 auto; background-color:rgba(255,255,255,0.9);}
+div#root { width:1100px; margin:0 auto;}
 header#header { }
 nav#nav { margin:10px 0; padding:10px 0;}
 section#container { }
@@ -34,7 +34,7 @@ header#header div#header_box h1 a:hover{ color:#fff; background:#000; text-decor
 nav#nav div#nav_box { font-size:14px; padding:10px; text-align:right; }
 nav#nav div#nav_box li { display:inline-block; margin:0 10px; }
 nav#nav div#nav_box li a { color:#333; text-decoration:none; transition-duration:0.5s;}
-nav#nav div#nav_box li a:hover { font-size:16px; font-weight:bold;}
+nav#nav div#nav_box li a:hover { font-size:15px; font-weight:bold;}
 
 section#container { }
 

@@ -79,4 +79,41 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value="/passwordConfirm", method=RequestMethod.GET)
+	public void getPasswordConfirm() {
+		logger.info("get passwordConfirm");
+	}
+		
+	@RequestMapping(value="/passwordConfirm", method=RequestMethod.POST)
+	public String postPasswordConfirm(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+		logger.info("post passwordConfirm");
+		
+		MemberVO login = service.signin(vo);
+		HttpSession session = req.getSession();
+		
+		boolean passMatch = passEncoder.matches(vo.getUserPass(), login.getUserPass());
+		
+		if(passMatch) {
+			session.setAttribute("member", login);
+			return "redirect:/member/signModify";
+		} else {
+			rttr.addFlashAttribute("msg", false);
+			return "redirect:/member/passwordConfirm";
+		}
+	}
+	
+	@RequestMapping(value="/signModify", method=RequestMethod.GET)
+	public void getSignModify() {
+		logger.info("get signModify");
+	}
+	
+	@RequestMapping(value="/signModify", method=RequestMethod.POST)
+	public String postSignModify(MemberVO vo, HttpServletRequest req) throws Exception {
+		HttpSession session = req.getSession();
+		
+		service.signmodify(vo);
+		session.invalidate();
+		return "redirect:/";
+	}
 }

@@ -28,4 +28,9 @@ public class MemberServiceImpl implements MemberService{
 	public void signout(HttpSession session) throws Exception{
 		session.invalidate();
 	}
+	
+	@Override
+	public void signmodify(MemberVO vo) throws Exception{
+		dao.signmodify(vo);
+	}
 }

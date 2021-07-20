@@ -72,6 +72,8 @@
 		</section>
 	</div>
 	
+	<%@ include file="../include/TopBtn.jsp" %>
+	
 	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../include/footer.jsp"%>

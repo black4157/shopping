@@ -17,5 +17,16 @@
 		from tbl_member
 		where userId = #{userId}
 	</select>
-
+	
+	<!-- 회원수정 -->
+	<update id="signmodify">
+		update tbl_member
+		set userPass = #{userPass},
+			userName = #{userName},
+			userPhon = #{userPhon},
+			userAddr1 = #{userAddr1},
+			userAddr2 = #{userAddr2},
+			userAddr3 = #{userAddr3}
+		where userId = #{userId}
+	</update>
 </mapper>

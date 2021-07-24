@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.du.shopping.domain.MemberVO;
@@ -37,13 +38,26 @@ public class MemberController {
 	public String postSignup(MemberVO vo) throws Exception{
 		logger.info("post signup");
 		
-		String inputPass = vo.getUserPass();
-		String pass = passEncoder.encode(inputPass);
-		vo.setUserPass(pass);
+		int result = service.idChk(vo);
 		
-		service.signup(vo);
-		
+		if(result == 1) {
+			return "/member/signup";
+		} else if(result == 0) {
+			String inputPass = vo.getUserPass();
+			String pass = passEncoder.encode(inputPass);
+			vo.setUserPass(pass);
+			
+			service.signup(vo);
+		}
+
 		return "redirect:/";
+	}
+
+	@ResponseBody
+	@RequestMapping(value="/idChk", method=RequestMethod.POST)
+	public int idChk(MemberVO vo) throws Exception{
+		int result = service.idChk(vo);
+		return result;
 	}
 	
 	@RequestMapping(value="/signin", method=RequestMethod.GET)
@@ -70,6 +84,7 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
+	
 	
 	@RequestMapping(value="/signout", method=RequestMethod.GET)
 	public String signout(HttpSession session) throws Exception{
@@ -110,10 +125,43 @@ public class MemberController {
 	
 	@RequestMapping(value="/signModify", method=RequestMethod.POST)
 	public String postSignModify(MemberVO vo, HttpServletRequest req) throws Exception {
+		logger.info("post signModify");
+		
+		MemberVO login = service.signin(vo);
 		HttpSession session = req.getSession();
 		
 		service.signmodify(vo);
-		session.invalidate();
+		session.setAttribute("member", login);
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/signDelete", method=RequestMethod.GET)
+	public void getSignDelete() {
+		logger.info("get signDelete");
+	}
+	
+	@RequestMapping(value="/signDelete", method=RequestMethod.POST)
+	public String postSignDelete(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+
+		MemberVO login = service.signin(vo);
+		if(login == null) {
+			rttr.addFlashAttribute("msg", "id fail");
+			return "redirect:/member/signDelete";
+		}
+		
+		HttpSession session = req.getSession();
+		
+		boolean passMatch = passEncoder.matches(vo.getUserPass(), login.getUserPass());
+		
+		if(login != null && passMatch) {
+			service.signdelete(vo);
+			session.invalidate();
+			rttr.addFlashAttribute("msg", "success");
+			return "redirect:/";
+		} else {
+			rttr.addFlashAttribute("msg", "password fail");
+			return "redirect:/member/signDelete";
+		}
+		
 	}
 }

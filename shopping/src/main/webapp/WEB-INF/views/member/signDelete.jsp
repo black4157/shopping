@@ -7,6 +7,7 @@
 <head>
 	<title>로그인 - 배틀그라운드 쇼핑몰</title>
 	
+	<script src="/resources/jquery/jquery-3.5.1.min.js"></script>
 	<link rel="stylesheet" href="/resources/css/user/default.css" />
 	<link rel="stylesheet" href="/resources/css/member/signin.css" />
 	
@@ -32,7 +33,7 @@
 		--%>
 	
 		<section id="content">
-			<form role="form" method="post" autocomplete="off" class="loginForm">
+			<form role="form" method="post" autocomplete="off" class="loginForm" name="loginForm">
 				<div class="input_area">
 					<div id="title">
 						<p>아이디</p>
@@ -47,14 +48,16 @@
 					<input type="password" id="userPass" name="userPass" required="required" placeholder="PW" style="ime-mode:disabled;"/>
 				</div>
 	
-				<button type="submit" id="signin_btn" name="sign_btn">→</button>
-				<div class="bottomText">
-			        Don't you have ID? <a href="/member/signup" style="text-decoration:none;">sign up</a>
-		        </div>
-				<c:if test="${msg == false }">
-					<p style="color:#f00;">로그인에 실패했습니다.</p>
-				</c:if>
+				<button type="submit" id="signdelete_btn" name="sign_btn">→</button>
 				
+				<c:if test="${msg == 'id fail' || msg == 'password fail'}">
+					<p style="color:#f00;">계정 인증에 실패했습니다.</p>
+				</c:if>
+				<c:if test="${msg == 'success'}">
+					<script>
+						alert("탈퇴되었습니다.");
+					</script>
+				</c:if>
 			</form>
 		</section>
 	</div>
@@ -66,5 +69,6 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
+
 </body>
 </html>

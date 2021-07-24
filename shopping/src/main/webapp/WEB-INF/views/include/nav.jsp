@@ -15,7 +15,10 @@
 		<li><a href="/admin/index">관리자 화면</a></li> 
 	</c:if>
 	
-	<li><a href="/member/passwordConfirm">회원정보 수정</a></li>
+	<c:if test="${member.verify == 0}">
+		<li><a href="/member/passwordConfirm">회원정보 수정</a></li>
+	</c:if>
+
 	<li><a href="/shop/cartList">장바구니 리스트</a></li>
 	<li><a href="/shop/orderList">주문 리스트</a></li>
 	<li><a href="/member/signout">로그아웃</a></li>

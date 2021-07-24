@@ -44,55 +44,8 @@
 				</ul>
 				<img id="next" src="/resources/images/slide/next.png" alt="" width="100">
 			</div>
-			<script>
-				$(document).ready(function(){
-					var imgs;
-					var img_count;
-					var img_position = 1;
-
-					imgs = $(".slide ul");
-					img_count = imgs.children().length;
-
-					$("#back").click(function(){
-						back();
-					});
-					$("#next").click(function(){
-						next();
-					});
-
-					function back(){
-						if(1 < img_position){
-							imgs.animate({
-								left: "+=400px"
-							});
-							
-						img_position--;
-						} else{
-							imgs.animate({
-								left: "-=2000px"
-							});
-							img_position = 6;
-							//alert("첫 사진입니다.");
-						}
-					}
-					
-					function next(){
-						if(img_count > img_position){
-							imgs.animate({
-								left: "-=400px"
-						});
-							
-						img_position++;
-						} else{
-							imgs.animate({
-								left: "+=2000px"
-							});
-							img_position = 1;
-							//alert("마지막 사진입니다.");
-						}
-					}
-				});
-			</script>
+			
+			<%@ include file ="./include/imageSlide.jsp" %>
 			
 			<div class="GoodsPopular">
 				<h2>★ ☆ 인 기 상 품 ☆ ★</h2>
@@ -129,6 +82,12 @@
 			<%@ include file="include/footer.jsp"%>
 		</div>
 	</footer>
+	
+	<c:if test="${msg == 'success' }">
+		<script>
+			alert("탈퇴가 완료되었습니다.");
+		</script>
+	</c:if>
 	<script>
 		if($("#root").height() >= 550){
 			$("#footer").css("position", "relative");

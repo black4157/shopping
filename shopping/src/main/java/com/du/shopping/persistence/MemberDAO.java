@@ -7,6 +7,9 @@ public interface MemberDAO {
 	
 	public MemberVO signin(MemberVO vo) throws Exception;
 
+	public int idChk(MemberVO vo) throws Exception;
+	
 	public void signmodify(MemberVO vo) throws Exception;
 	
+	public void signdelete(MemberVO vo) throws Exception;
 }

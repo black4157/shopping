@@ -26,8 +26,18 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 	
 	@Override
+	public int idChk(MemberVO vo) throws Exception{
+		int result = sql.selectOne(namespace + ".idChk", vo);
+		return result;
+	}
+	
+	@Override
 	public void signmodify(MemberVO vo) throws Exception{
 		sql.update(namespace + ".signmodify", vo);
 	}
 	
+	@Override
+	public void signdelete(MemberVO vo) throws Exception{
+		sql.delete(namespace + ".signdelete", vo);
+	}
 }

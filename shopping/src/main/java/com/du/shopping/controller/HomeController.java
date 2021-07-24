@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.du.shopping.domain.GoodsViewVO;
 import com.du.shopping.service.AdminService;
@@ -23,7 +24,7 @@ public class HomeController {
 	AdminService service;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) throws Exception {
+	public String home(Model model, RedirectAttributes rttr) throws Exception {
 		logger.info("get home(main)");
 		
 		List<GoodsViewVO> populargoodslist = service.populargoodslist();

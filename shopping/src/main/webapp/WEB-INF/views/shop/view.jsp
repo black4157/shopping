@@ -285,8 +285,6 @@
 				</aside>
 			</div>
 		</section>
-		
-		
 	</div>
 	
 	<div class="replyModal">

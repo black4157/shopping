@@ -81,7 +81,7 @@
 					</div>
 					
 					<button type="button" id="signup_btn" name="signup_btn">수정</button>
-					<button type="button" id="signcancel_btn" name="signcancel_btn">수정</button>
+					<button type="button" id="signcancel_btn" name="signcancel_btn">취소</button>
 					<button type="button" id="signdelete_btn" name="signdelete_btn">회원 탈퇴</button>
 					
 					<script>
@@ -118,11 +118,6 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
-	<script>
-		if($("#root").height() >= 800){
-			$("#footer").css("position", "relative");
-		}
-	</script>
 	
 	<%@ include file = "../include/kakaoAddr.jsp" %>
 </body>

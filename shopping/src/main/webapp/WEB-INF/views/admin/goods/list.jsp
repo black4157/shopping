@@ -64,7 +64,7 @@
 							<th>카테고리</th>
 							<th>가격</th>
 							<th>수량</th>
-							<th>등록 날짜</th>
+							<th>등록일</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -77,9 +77,9 @@
 							<td>${list.cateName }</td>
 							<td><fmt:formatNumber value="${list.gdsPrice }" pattern="###,###,###" /></td>
 							<c:choose>
-							<c:when test="${list.gdsStock <= 100}"><td style="color:red; width:200px;">${list.gdsStock }(수량 부족 임박!)</td></c:when>
-							<c:when test="${list.gdsStock > 100}"><td style="width:200px;">${list.gdsStock }</td></c:when>
-							<c:when test="${list.gdsStock <= 0 }"><td style="width:200px; text-decoration:line-through;">${list.gdsStock }(수량 없음)</td></c:when>
+								<c:when test="${list.gdsStock <= 100}"><td style="color:red; width:200px;">${list.gdsStock }(수량 부족 임박!)</td></c:when>
+								<c:when test="${list.gdsStock > 100}"><td style="width:200px;">${list.gdsStock }</td></c:when>
+								<c:when test="${list.gdsStock <= 0 }"><td style="width:200px; text-decoration:line-through;">${list.gdsStock }(수량 없음)</td></c:when>
 							</c:choose>
 							
 							<td><fmt:formatDate value="${list.gdsDate }" pattern="YYYY-MM-dd" /></td>
@@ -101,6 +101,7 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
+	
 	<script>
 		if($("#root").height() >= 800){
 			$("#footer").css("position", "relative");

@@ -129,12 +129,13 @@
 	</div>
 	
 	<%@ include file="../include/TopBtn.jsp" %>
-\
+
 	<footer id="footer">
 		<div id="footer_box">
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
+	
 	<script>
 		if($("#root").height() >= 486){
 			$("#footer").css("position", "relative");

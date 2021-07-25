@@ -88,10 +88,6 @@
 			alert("탈퇴가 완료되었습니다.");
 		</script>
 	</c:if>
-	<script>
-		if($("#root").height() >= 550){
-			$("#footer").css("position", "relative");
-		}
-	</script>
+
 </body>
 </html>

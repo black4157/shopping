@@ -61,10 +61,5 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
-	<script>
-		if($("#root").height() >= 486){
-			$("#footer").css("position", "relative");
-		}
-	</script>
 </body>
 </html>

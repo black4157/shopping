@@ -39,17 +39,17 @@
 				<%@ include file="../include/aside.jsp"%>
 			</aside>
 			<div id="container_box">
-				<table>
+				<table border="1">
 					<thead>
 						<tr>
 							<th>아이디</th>
 							<th>닉네임</th>
 							<th>전화번호</th>
-							<th>주소1</th>
-							<th>주소2</th>
-							<th>주소3</th>
+							<th>우편번호</th>
+							<th>주소</th>
+							<th>상세주소</th>
 							<th>가입날짜</th>
-							<th>등급</th>
+							<th>회원등급</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -59,8 +59,8 @@
 							<td>${memberList.userName }</td>
 							<td>${memberList.userPhon }</td>
 							<td>${memberList.userAddr1 }</td>
-							<td>${memberList.userAddr2 }</td>
-							<td>${memberList.userAddr3 }</td>
+							<td style="width:190px;">${memberList.userAddr2 }</td>
+							<td style="width:190px;">${memberList.userAddr3 }</td>
 							<td><fmt:formatDate value="${memberList.regDate }" pattern="YYYY-MM-DD" /></td>
 							<td>${memberList.verify }</td>
 						</tr>
@@ -79,6 +79,7 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
+	
 	<script>
 		if($("#root").height() >= 800){
 			$("#footer").css("position", "relative");

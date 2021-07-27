@@ -94,7 +94,7 @@ public class AdminController {
 		model.addAttribute("category", JSONArray.fromObject(category));
 		model.addAttribute("list", list);
 	}
-
+	
 	@RequestMapping(value = "/goods/view", method = RequestMethod.GET)
 	public void getGoodsview(@RequestParam("n") int gdsNum, Model model) throws Exception {
 		logger.info("get goods view");

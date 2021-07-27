@@ -59,7 +59,7 @@ aside#aside li > ul.low li{width:100px;}
 #next {position:absolute; top:150px; right:0; cursor:pointer; z-index:1; width:30px; height:30px;}
 
 div.GoodsPopular {width:1000px; margin:50px auto; text-align:center;}
-div.GoodsPopular h2 {padding:50px;}
+div.GoodsPopular h2 {padding:50px; text-align:center;}
 div.GoodsPopular li {display:inline-block; margin:15px;}
 div.GoodsPopular img {width:150px; height:150px;}
 div.GoodsPopular a {color:#000; text-decoration:none; display:inline-grid;}

@@ -47,8 +47,10 @@
 				<input type="hidden" name="n" value="${goods.gdsNum }" />
 					<div class="inputArea"> 
 						<label>1차 분류</label>
-						<span class="category1"></span>   
-						     
+						<span class="category1">${goods.cateName }</span>   
+						
+						<br />
+						
 						<label>2차 분류</label>
 						<span class="category2">${goods.cateCode}</span>
 					</div>
@@ -99,12 +101,6 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
-	
-	<script>
-	if($("#root").height() >= 486){
-		$("#footer").css("position", "relative");
-	}
-	</script>
 	
 	<script>
 		var formObj = $("form[role='form']");

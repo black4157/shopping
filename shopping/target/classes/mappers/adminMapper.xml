@@ -51,7 +51,7 @@
 	<!-- 상품조회 +카테고리 조인 -->
 	<select id="goodsView" resultType="GoodsViewVO">
 		select
-		g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate, g.gdsImg, g.gdsThumbImg, g.hit
+			g.gdsNum, g.gdsName, g.cateCode, c.cateCodeRef, c.cateName, gdsPrice, gdsStock, gdsDes, gdsImg, gdsDate, g.gdsImg, g.gdsThumbImg, g.hit
 		from tbl_goods g
 			inner join goods_category c
 			on g.cateCode = c.cateCode

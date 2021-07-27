@@ -40,21 +40,6 @@
 			</aside>
 			
 			<div id="container_box">
-			
-				<div class="inputArea"> 
-					<label>1차 분류</label>
-					<select class="category1">
-						<option value="">전체</option>
-					</select>
-					
-					<br />
-					
-					<label>2차 분류</label>
-					<select class="category2" name="cateCode">
-						<option value="">전체</option>
-					</select>
-				</div>
-				
 				<table>
 					<thead>
 						<tr>
@@ -85,11 +70,8 @@
 							<td><fmt:formatDate value="${list.gdsDate }" pattern="YYYY-MM-dd" /></td>
 						</tr>
 						</c:forEach>
-						
 					</tbody>
 				</table>
-				
-				
 			</div>
 		</section>
 	</div>
@@ -101,13 +83,7 @@
 			<%@ include file="../include/footer.jsp"%>
 		</div>
 	</footer>
-	
-	<script>
-		if($("#root").height() >= 800){
-			$("#footer").css("position", "relative");
-		}
-	</script>
-	
+
 	<script>
 		var jsonData = JSON.parse('${category}');
 		console.log(jsonData);
@@ -129,7 +105,6 @@
 		for (var i = 0; i < cate1Arr.length; i++) {
 			cate1Select.append("<option value='" + cate1Arr[i].cateCode + "'>" + cate1Arr[i].cateName + "</option>");
 		}
-
 		
 		$(document).on("change", "select.category1", function(){
 
@@ -161,7 +136,7 @@
 				}
 			})
 		});
-
+		
 	</script>
 </body>
 </html>

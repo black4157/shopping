@@ -200,7 +200,6 @@
 											var gdsNum = $("#gdsNum").val();
 											var repCon = $("#repCon").val().replace(/(?:\r\n|\r|\n)/g, '<br/>');
 											$("#repCon").val(repCon);
-										
 
 											var data = {
 													gdsNum : gdsNum,

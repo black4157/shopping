@@ -40,5 +40,4 @@ public interface AdminDAO {
 	
 	public List<MemberVO> memberList() throws Exception;
 	
-	
 }
